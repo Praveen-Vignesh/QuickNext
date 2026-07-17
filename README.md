@@ -29,6 +29,15 @@ frontend/                     React 19 + Vite
 
 ## Setup, step by step
 
+### 0. Just want to see it? (~2 min, no accounts)
+
+```bash
+cd backend  && npm install && npm run dev:local    # in-memory DB, seeded, no Atlas
+cd frontend && npm install && npm run dev          # → http://localhost:5173
+```
+
+`dev:local` spins up a throwaway MongoDB, seeds it, and boots the API. Nothing to configure — good for getting teammates running in hour 1 without sharing credentials. Data resets on restart; use Atlas below when you need it to persist.
+
 ### 1. MongoDB Atlas (~5 min)
 
 1. Create a free account at [mongodb.com/cloud/atlas](https://www.mongodb.com/cloud/atlas).
@@ -46,6 +55,27 @@ frontend/                     React 19 + Vite
      ```
      mongodb+srv://user:pass@cluster0.xxxxx.mongodb.net/quicknext?retryWrites=true&w=majority
      ```
+
+#### ⚠️ `querySrv ECONNREFUSED` / `ENOTFOUND`? Use the non-SRV string
+
+`mongodb+srv://` requires a **DNS SRV lookup**. On some machines Node's resolver (c-ares) misreads the Windows DNS config and falls back to `127.0.0.1`, where nothing is listening — so *every* `mongodb+srv://` connection fails, on every project, forever. Your browser and `nslookup` keep working, which makes it baffling to debug. **This machine has that bug**, which is why `backend/.env` uses the standard string.
+
+One-line diagnosis — if this prints `127.0.0.1`, that's it:
+```bash
+node -e "console.log(require('dns').getServers())"
+```
+
+**Fix:** use Atlas's standard connection string. It lists shard hosts explicitly and resolves them via ordinary A records, so SRV is never involved. Get it from **Atlas → Connect → Drivers → driver version "Node.js 2.2.12 or later"**, or build it:
+
+```powershell
+nslookup -type=SRV _mongodb._tcp.<cluster>.mongodb.net 8.8.8.8   # → shard hostnames
+nslookup -type=TXT <cluster>.mongodb.net 8.8.8.8                 # → replicaSet name
+```
+```
+mongodb://user:pass@host-00:27017,host-01:27017,host-02:27017/quicknext?ssl=true&replicaSet=atlas-xxxxxx-shard-0&authSource=admin&retryWrites=true&w=majority
+```
+
+Works everywhere including Render, so use it in both places. Regenerate it if Atlas ever changes cluster topology.
 
 ```bash
 cd backend
