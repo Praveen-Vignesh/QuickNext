@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import GoogleLoginButton from '../components/GoogleLoginButton';
 import { errorMessage } from '../api/client';
@@ -107,6 +107,10 @@ export default function Login() {
             />
           </>
         )}
+
+        <p className="muted" style={{ marginTop: '1rem', marginBottom: 0, fontSize: '0.85rem' }}>
+          New here? <Link to="/signup"><strong>Create an account</strong></Link>
+        </p>
 
         <div className="divider">demo accounts</div>
         <div className="demo-list">

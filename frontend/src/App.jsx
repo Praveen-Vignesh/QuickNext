@@ -8,6 +8,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Catalog from "./pages/Catalog";
 import ProductDetail from "./pages/ProductDetail";
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import RoleSelect from "./pages/RoleSelect";
 import Cart from "./pages/Cart";
 import Orders from "./pages/Orders";
@@ -33,6 +34,7 @@ export default function App() {
                 <Route path="/" element={<Catalog />} />
                 <Route path="/product/:id" element={<ProductDetail />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
 
                 <Route
                   path="/role"

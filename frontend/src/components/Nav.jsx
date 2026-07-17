@@ -58,9 +58,14 @@ export default function Nav() {
               </button>
             </div>
           ) : (
-            <Link className="btn btn--primary btn--sm" to="/login">
-              Sign in
-            </Link>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <Link className="btn btn--ghost btn--sm" to="/login">
+                Sign in
+              </Link>
+              <Link className="btn btn--primary btn--sm" to="/signup">
+                Sign up
+              </Link>
+            </div>
           )}
         </nav>
       </div>
