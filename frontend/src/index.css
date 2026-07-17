@@ -146,7 +146,10 @@ h3 {
   border: 1px solid transparent;
   padding: 0.5rem 0.9rem;
   cursor: pointer;
-  transition: background 0.15s, opacity 0.15s;
+  transition: background 0.15s, opacity 0.15s, transform 0.1s ease;
+}
+.btn:active:not(:disabled) {
+  transform: scale(0.97);
 }
 .btn:disabled {
   opacity: 0.5;
@@ -191,11 +194,13 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 .input:focus,
 .select:focus {
-  outline: 2px solid var(--green);
-  outline-offset: -1px;
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(47, 111, 79, 0.12);
 }
 
 .field {
@@ -275,6 +280,12 @@ h3 {
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  border-color: #d1d5db;
 }
 
 .card__media {

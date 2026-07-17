@@ -3,13 +3,23 @@ import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 
 export default function Nav() {
-  const { user, logout } = useAuth();
+  const { user, logout, chooseRole } = useAuth();
   const { count } = useCart();
   const navigate = useNavigate();
 
   const handleLogout = () => {
     logout();
     navigate('/');
+  };
+
+  const handleToggleRole = async () => {
+    const targetRole = user?.role === 'vendor' ? 'customer' : 'vendor';
+    try {
+      await chooseRole(targetRole);
+      navigate(targetRole === 'vendor' ? '/vendor' : '/');
+    } catch (err) {
+      console.error('Failed to toggle role', err);
+    }
   };
 
   return (
@@ -39,11 +49,16 @@ export default function Nav() {
           </NavLink>
 
           {user ? (
-            <button className="btn btn--ghost" onClick={handleLogout}>
-              Sign out
-            </button>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <button className="btn btn--ghost btn--sm" onClick={handleToggleRole}>
+                Switch to {user.role === 'vendor' ? 'Buyer' : 'Seller'}
+              </button>
+              <button className="btn btn--ghost btn--sm" onClick={handleLogout}>
+                Sign out
+              </button>
+            </div>
           ) : (
-            <Link className="btn btn--primary" to="/login">
+            <Link className="btn btn--primary btn--sm" to="/login">
               Sign in
             </Link>
           )}
