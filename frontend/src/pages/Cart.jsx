@@ -8,9 +8,13 @@ import StockBadge from '../components/StockBadge';
 
 const rupees = (n) => `₹${n.toLocaleString('en-IN')}`;
 
+// Razorpay payment page. Opened in a new tab after the order is placed, so the
+// shop keeps the order history and the customer completes payment on Razorpay.
+const RAZORPAY_PAY_LINK = 'https://razorpay.me/@kishore8441';
+
 export default function Cart() {
   const { cart, refresh, setQuantity, removeItem, busy } = useCart();
-  const { user, config } = useAuth();
+  const { user } = useAuth();
   const { checkout, busy: paying, error, setError } = useCheckout({ user });
   const navigate = useNavigate();
   const [placed, setPlaced] = useState(null);
@@ -20,11 +24,22 @@ export default function Cart() {
   usePoll(refresh, 5000);
 
   const pay = async () => {
+    // Opened blank and synchronously, while the click is still the "user
+    // gesture" the browser will allow a popup for. Waiting until after the
+    // await below loses that permission and the tab gets blocked. We point it
+    // at Razorpay once the order is confirmed, or close it if checkout failed.
+    const payWindow = window.open('', '_blank');
+
     try {
       const order = await checkout();
+      if (payWindow) payWindow.location.href = RAZORPAY_PAY_LINK;
+      else window.open(RAZORPAY_PAY_LINK, '_blank', 'noopener,noreferrer'); // popup blocked
       setPlaced(order);
       navigate('/orders', { state: { justPlaced: order._id } });
     } catch {
+      // Out of stock, most likely — don't send anyone to a payment page for an
+      // order that doesn't exist.
+      payWindow?.close();
       // useCheckout already surfaced the message; also re-read stock so the
       // reason (someone else took the last one) is visible.
       refresh();
@@ -125,9 +140,7 @@ export default function Cart() {
           </button>
 
           <p className="muted" style={{ fontSize: '0.75rem', marginBottom: 0 }}>
-            {config.razorpayEnabled
-              ? 'Secured by Razorpay (test mode — no real money moves).'
-              : 'Simulated payment — no gateway configured.'}
+            Your order is placed here, then Razorpay opens in a new tab to take payment.
           </p>
         </aside>
       </div>
