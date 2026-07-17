@@ -682,3 +682,199 @@ th {
     opacity: 0.25;
   }
 }
+
+/* --------------------------- Responsive Layouts --------------------------- */
+
+/* Navigation Actions & Mobile Stack */
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .nav__inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+  }
+  
+  .nav__brand {
+    text-align: center;
+  }
+  
+  .nav__links {
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .nav__actions {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+/* Cart Item Rows Mobile Layout */
+@media (max-width: 600px) {
+  .cart-row {
+    display: grid;
+    grid-template-areas:
+      "main main"
+      "qty total"
+      "remove remove";
+    grid-template-columns: 1fr auto;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 1.25rem 0;
+  }
+  
+  .cart-row .row__main {
+    grid-area: main;
+  }
+  
+  .cart-row .qty {
+    grid-area: qty;
+    justify-self: start;
+  }
+  
+  .cart-row strong {
+    grid-area: total;
+    text-align: right;
+    font-size: 1.1rem;
+  }
+  
+  .cart-row .btn--danger {
+    grid-area: remove;
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 0.55rem;
+    background: var(--danger-bg);
+  }
+}
+
+/* Vendor Catalog Rows Mobile Layout */
+@media (max-width: 600px) {
+  .catalog-row {
+    display: grid;
+    grid-template-areas:
+      "main main"
+      "badge badge"
+      "edit remove";
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 1.25rem 0;
+  }
+  
+  .catalog-row .row__main {
+    grid-area: main;
+  }
+  
+  .catalog-row .badge {
+    grid-area: badge;
+    justify-self: start;
+  }
+  
+  .catalog-row button.btn--ghost {
+    grid-area: edit;
+    width: 100%;
+    text-align: center;
+    padding: 0.55rem;
+  }
+  
+  .catalog-row button.btn--danger {
+    grid-area: remove;
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 0.55rem;
+    background: var(--danger-bg);
+  }
+}
+
+/* Responsive Table-to-Cards Layout for incoming orders */
+@media (max-width: 768px) {
+  .table-wrap table, 
+  .table-wrap thead, 
+  .table-wrap tbody, 
+  .table-wrap th, 
+  .table-wrap td, 
+  .table-wrap tr {
+    display: block;
+    width: 100%;
+  }
+  
+  .table-wrap thead {
+    display: none;
+  }
+  
+  .table-wrap tr {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    box-shadow: var(--shadow);
+  }
+  
+  .table-wrap td {
+    border-bottom: none;
+    padding: 0.5rem 0.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: right;
+  }
+  
+  .table-wrap td::before {
+    content: attr(data-label);
+    font-size: 0.64rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--outline);
+    font-weight: 700;
+    text-align: left;
+    margin-right: 1rem;
+  }
+  
+  .table-wrap td[data-label="Action"] {
+    justify-content: stretch;
+    border-top: 1px solid var(--line);
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+  }
+
+  .table-wrap td[data-label="Action"]::before {
+    display: none;
+  }
+
+  .table-wrap td[data-label="Action"] button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Grid & container adjustment for very small viewports */
+@media (max-width: 480px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .role-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .container {
+    padding: 1rem 0.75rem 2.5rem;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+  }
+}

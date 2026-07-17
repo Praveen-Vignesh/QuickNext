@@ -49,7 +49,7 @@ export default function Nav() {
           </NavLink>
 
           {user ? (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <div className="nav__actions">
               <button className="btn btn--ghost btn--sm" onClick={handleToggleRole}>
                 Switch to {user.role === 'vendor' ? 'Buyer' : 'Seller'}
               </button>
@@ -58,7 +58,7 @@ export default function Nav() {
               </button>
             </div>
           ) : (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+            <div className="nav__actions">
               <Link className="btn btn--ghost btn--sm" to="/login">
                 Sign in
               </Link>

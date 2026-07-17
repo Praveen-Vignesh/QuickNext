@@ -99,7 +99,7 @@ export default function VendorCatalog() {
             <p className="muted">Nothing listed yet. Add your first product →</p>
           ) : (
             products.map((product) => (
-              <div className="row" key={product._id}>
+              <div className="row catalog-row" key={product._id}>
                 <div className="row__main">
                   <div className="row__title">{product.name}</div>
                   <span className="muted" style={{ fontSize: '0.8rem' }}>

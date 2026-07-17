@@ -78,7 +78,7 @@ export default function Cart() {
       <div className="split">
         <div className="panel">
           {cart.items.map((item) => (
-            <div className="row" key={item.productId}>
+            <div className="row cart-row" key={item.productId}>
               <div className="row__main">
                 <div className="row__title">{item.name}</div>
                 <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'center' }}>

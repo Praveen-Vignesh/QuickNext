@@ -178,15 +178,15 @@ export default function VendorDashboard() {
                   const action = NEXT_ACTION[order.status];
                   return (
                     <tr key={order._id}>
-                      <td>{order.customer?.name ?? '—'}</td>
-                      <td>
+                      <td data-label="Customer">{order.customer?.name ?? '—'}</td>
+                      <td data-label="Items">
                         {order.items.map((i) => `${i.name} ×${i.quantity}`).join(', ')}
                       </td>
-                      <td>{rupees(order.vendorTotal)}</td>
-                      <td>
+                      <td data-label="Total">{rupees(order.vendorTotal)}</td>
+                      <td data-label="Status">
                         <span className="chip">{order.status.replace('_', ' ')}</span>
                       </td>
-                      <td>
+                      <td data-label="Action">
                         {action && (
                           <button
                             className="btn btn--ghost btn--sm"
