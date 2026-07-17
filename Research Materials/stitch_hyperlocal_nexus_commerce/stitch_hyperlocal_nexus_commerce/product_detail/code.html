@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Detail - NextGen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#474746",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#cac6c4",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-background": "#1c1b1b",
+                        "secondary-fixed": "#e4e2de",
+                        "on-tertiary-container": "#868382",
+                        "surface-dim": "#ddd9d8",
+                        "tertiary-container": "#1c1b1a",
+                        "tertiary": "#000000",
+                        "surface-variant": "#e5e2e1",
+                        "surface": "#fdf8f8",
+                        "surface-container-highest": "#e5e2e1",
+                        "secondary-container": "#e1dfdc",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "outline-variant": "#c4c7c7",
+                        "on-primary-container": "#858383",
+                        "secondary-fixed-dim": "#c8c6c3",
+                        "on-surface": "#1c1b1b",
+                        "primary-fixed": "#e5e2e1",
+                        "on-secondary-fixed": "#1b1c1a",
+                        "surface-container-high": "#ebe7e6",
+                        "primary-container": "#1c1b1b",
+                        "inverse-surface": "#313030",
+                        "on-tertiary-fixed": "#1c1b1a",
+                        "inverse-primary": "#c8c6c5",
+                        "inverse-on-surface": "#f4f0ef",
+                        "on-error-container": "#93000a",
+                        "secondary": "#5e5e5c",
+                        "surface-tint": "#5f5e5e",
+                        "on-secondary-container": "#636360",
+                        "outline": "#747878",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#1c1b1b",
+                        "error": "#ba1a1a",
+                        "background": "#fdf8f8",
+                        "surface-container": "#f1edec",
+                        "on-secondary-fixed-variant": "#474744",
+                        "tertiary-fixed": "#e6e2df",
+                        "on-error": "#ffffff",
+                        "primary": "#000000",
+                        "surface-bright": "#fdf8f8",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f7f3f2",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#444748"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "section-gap": "80px",
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-sm": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-24 md:pb-0">
+<!-- TopAppBar (Transactional - Hidden Navigation Shell for Product Detail, but keeping a header for "Back" action as it's a detail screen) -->
+<header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 sticky top-0 z-50 bg-surface dark:bg-tertiary">
+<button aria-label="Go back" class="flex items-center justify-center p-2 rounded-full hover:bg-surface-container transition-colors text-primary">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<span class="font-headline-sm-mobile md:font-headline-sm text-headline-sm-mobile md:text-headline-sm text-primary dark:text-on-primary tracking-tighter">NextGen</span>
+<div class="flex gap-4">
+<button aria-label="Share" class="text-primary hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined" data-icon="ios_share">ios_share</span>
+</button>
+<button aria-label="Cart" class="text-primary hover:opacity-90 transition-opacity relative">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-primary text-on-primary rounded-full w-4 h-4 flex items-center justify-center text-[10px] font-bold">2</span>
+</button>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-0 md:px-margin-desktop pb-section-gap grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Image Gallery (Left Column on Desktop) -->
+<div class="md:col-span-7 flex flex-col gap-4">
+<div class="w-full aspect-[8/10] bg-surface-container-low overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="A high-fashion, minimalist product photography shot of a sleek, structural leather handbag in deep onyx black. The bag rests elegantly on a smooth, soft cream pedestal. The lighting is pristine and high-key, casting a subtle, soft shadow that emphasizes the bag's premium texture and craftsmanship. The overall aesthetic is 'Quiet Luxury', evoking a calm, sophisticated, and exclusive editorial atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLFRGAu-xVQTTI07kFf9k4-R06w9WEalpqWccKfn0ytAOLlJ2a1sHdZpNad6SE5ENiD0GfTRoHWEDiJFW1zdhQ3tMQngv23lKGiS8YPN2O3FZHQ-dueAcgtDPNNoRZx2rReNqNIREEFAnBMR3hR7iUMLphoAJ_GcTmyCXCt8h1gCcQnXjnHY2DZ5Mij5mKdJgTgFHhpp9ngBRbgX1wpQ0vrrnSsw1f7gEV10qUfWHJXObJFFO9vsxHIXLICQU1VBv-ea4FhYuLMK-J"/>
+</div>
+<!-- Thumbnails (Hidden on mobile for cleaner swipe interface, shown on desktop) -->
+<div class="hidden md:flex gap-4 overflow-x-auto no-scrollbar">
+<button class="w-24 h-32 flex-shrink-0 bg-surface-container-low border border-primary relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A detail shot of a sleek leather handbag's brass clasp, high quality, soft cream background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaOr9AEodvCi2y_7dg5HX5RaMKsy2BiNou3fkWYIcStl6P5dQbnU43Dxvz7xXs8eerLwExNC1QvEty4TOYt7EtPU7e5t5FnS-ybbc0KgHfhMVl8L-3w0KkwhbsAEE0V44ZJ5hTB1R2PhGPlEOdh-H5VWoorsXG-3nXzIort4bwF_f0CJB9r6QJzFJtfDoez95GejqKnf3CIOPXkEp-nHmBNHRnoOBwrGfI2QbHbYDnb4eCtufwqdds3pz7oD55RgfLAa9z0OKJdSjW"/>
+</button>
+<button class="w-24 h-32 flex-shrink-0 bg-surface-container-low opacity-60 hover:opacity-100 transition-opacity relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A side view of a minimalist black leather handbag showcasing its slim profile, soft cream background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBntuRkzpwV7mc20RYTujt7hbMLd5vkdUyGizg4mPqRxGu17ZePyKEV4rQYMek25VPcoyCxl_Ivz1NFxCFplgH_2v5qkFaLUqmK01JBExwnJcFfS986DYeHWynrejdBDcc5XJG_A8Xv3lgI5kcmPg4E6uDn3yQd3KnmkTRY2gZAXoC2hANSCRTf2weVQZQoycooOTNn-h9Z-qk4YaeeR92Aqu_qA95KIm7MttVlIGzdME9Mlc5f2sZObJGLfAWjH0xEGU__C2cnF4ML"/>
+</button>
+<button class="w-24 h-32 flex-shrink-0 bg-surface-container-low opacity-60 hover:opacity-100 transition-opacity relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="The interior of a premium black leather handbag lined with soft suede, soft cream background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCylh1JRmlwdX4v25Qe28RDRrXNhPuRCBNdpTo6f6opWa-sBcmUUwRyvQR2w3G2OwWCmVFO_DmRQMfWGZmxZW1XxmtFV3uPRaHzPmx_WAgfSNFBaTsZox9lDw7FP0EObxR5n03J7JWe62wxgMeT_0IPAoMTbPmdfx1_8SZZQvxOBZUdot4c7ZFYNzVIEHzKGNvrKK5GMoAWCI9dq9jO1PLcsW2ar4jt9i869VCYSrET3fPo1FtoFAC3I8bQcmDr_c0kd7-Nq-mDpiuT"/>
+</button>
+</div>
+</div>
+<!-- Product Details (Right Column on Desktop) -->
+<div class="md:col-span-5 px-margin-mobile md:px-0 flex flex-col pt-8 md:pt-0 sticky top-24 h-fit">
+<!-- Breadcrumbs / Category -->
+<nav class="flex gap-2 text-secondary font-label-caps text-label-caps mb-4 uppercase">
+<span>Accessories</span>
+<span>/</span>
+<span class="text-primary font-semibold">Leather Goods</span>
+</nav>
+<!-- Title & Price -->
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-2">The Structured Tote</h1>
+<p class="font-headline-md text-headline-md text-primary mb-6">$850.00</p>
+<!-- Rating -->
+<div class="flex items-center gap-2 mb-8">
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-base" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base text-outline-variant" data-icon="star">star</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary underline cursor-pointer">12 Reviews</span>
+</div>
+<!-- Description -->
+<div class="prose prose-sm mb-8 font-body-md text-body-md text-secondary">
+<p>Crafted from full-grain Italian leather, this structured tote embodies quiet luxury. Its minimalist exterior hides a highly functional interior, designed to effortlessly carry your daily essentials while maintaining a sharp, elegant silhouette. Unlined to showcase the natural suede interior.</p>
+</div>
+<!-- Vendor Info -->
+<div class="flex items-center justify-between py-4 border-y border-surface-variant mb-8">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-high rounded-full overflow-hidden flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="storefront">storefront</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-semibold text-primary">Atelier Blanc</p>
+<p class="font-body-sm text-body-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="location_on">location_on</span> Paris, France
+                        </p>
+</div>
+</div>
+<button class="font-label-caps text-label-caps text-primary underline uppercase tracking-widest hover:opacity-70 transition-opacity">Visit Shop</button>
+</div>
+<!-- Stock Badge -->
+<div class="flex items-center gap-2 mb-10">
+<span class="material-symbols-outlined text-error text-[18px]" data-icon="error">error</span>
+<span class="font-body-sm text-body-sm text-error font-medium">5 units left - Low Stock</span>
+</div>
+<!-- Desktop Action Buttons (Hidden on Mobile) -->
+<div class="hidden md:flex gap-4">
+<button class="flex-1 bg-primary text-on-primary py-4 px-6 hover:opacity-90 transition-opacity font-label-caps text-label-caps uppercase tracking-widest">
+                    Add to Cart
+                </button>
+<button class="w-14 h-14 border border-primary flex items-center justify-center hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined" data-icon="favorite_border">favorite_border</span>
+</button>
+</div>
+<!-- Accordions for Details -->
+<div class="mt-12 flex flex-col gap-0 border-t border-surface-variant">
+<details class="group py-4 border-b border-surface-variant cursor-pointer">
+<summary class="flex justify-between items-center font-body-md text-body-md font-semibold text-primary list-none">
+                        Dimensions &amp; Materials
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="pt-4 font-body-sm text-body-sm text-secondary">
+<ul class="list-disc pl-4 space-y-2">
+<li>100% Full-grain calfskin leather</li>
+<li>Solid brass hardware</li>
+<li>W: 14" x H: 11" x D: 6"</li>
+<li>Handle drop: 8.5"</li>
+</ul>
+</div>
+</details>
+<details class="group py-4 border-b border-surface-variant cursor-pointer">
+<summary class="flex justify-between items-center font-body-md text-body-md font-semibold text-primary list-none">
+                        Shipping &amp; Returns
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="pt-4 font-body-sm text-body-sm text-secondary">
+<p>Complimentary express shipping on all orders over $500. Returns accepted within 14 days of delivery in original, unused condition.</p>
+</div>
+</details>
+</div>
+</div>
+</main>
+<!-- Mobile Sticky Footer Action -->
+<div class="md:hidden fixed bottom-0 left-0 w-full bg-surface/90 backdrop-blur-md border-t border-surface-variant p-margin-mobile z-50 flex gap-4">
+<button class="flex-1 bg-primary text-on-primary py-4 px-6 hover:opacity-90 transition-opacity font-label-caps text-label-caps uppercase tracking-widest text-center shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
+            Add to Cart - $850
+        </button>
+</div>
+</body></html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HEIRLOOM | Electronics Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&amp;family=Hanken+Grotesk:wght@500;600&amp;family=Source+Serif+4:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#fef9f2",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#5f5e5e",
+                        "tertiary-fixed": "#e6e2df",
+                        "tertiary-container": "#1c1b1a",
+                        "inverse-primary": "#c8c6c5",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-tertiary-container": "#868382",
+                        "tertiary": "#000000",
+                        "primary-fixed": "#e5e2e1",
+                        "surface-container-low": "#f8f3ec",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#444748",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#c4c7c7",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "on-primary-fixed-variant": "#474746",
+                        "on-primary-container": "#858383",
+                        "secondary-fixed": "#ede1d4",
+                        "primary": "#000000",
+                        "secondary-fixed-dim": "#d0c5b9",
+                        "on-secondary-container": "#6b6359",
+                        "surface-container-high": "#ece7e1",
+                        "on-surface": "#1d1c18",
+                        "surface-variant": "#e6e2db",
+                        "secondary-container": "#ede1d4",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#f5f0e9",
+                        "background": "#fef9f2",
+                        "outline": "#747878",
+                        "surface-container": "#f2ede6",
+                        "on-background": "#1d1c18",
+                        "secondary": "#655d54",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e6e2db",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#201b13",
+                        "on-secondary-fixed-variant": "#4d463d",
+                        "on-tertiary-fixed": "#1c1b1a",
+                        "primary-container": "#1c1b1b",
+                        "surface-dim": "#ded9d3",
+                        "inverse-surface": "#32302c",
+                        "tertiary-fixed-dim": "#cac6c4",
+                        "surface-bright": "#fef9f2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit-xxl": "128px",
+                        "unit-md": "16px",
+                        "unit-xs": "4px",
+                        "unit-xl": "64px",
+                        "gutter": "32px",
+                        "margin": "64px",
+                        "max-width": "1440px",
+                        "unit-lg": "32px",
+                        "unit-sm": "8px",
+                        "columns": "12"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["\"Source Serif 4\""],
+                        "body-sm": ["\"Source Serif 4\""],
+                        "display-xl": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "label-md": ["Hanken Grotesk"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-sm": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "body-md": ["\"Source Serif 4\""]
+                    },
+                    "fontSize": {
+                        "body-lg": ["20px", { "lineHeight": "32px", "fontWeight": "400" }],
+                        "body-sm": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-xl": ["72px", { "lineHeight": "84px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-md": ["36px", { "lineHeight": "44px", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["60px", { "lineHeight": "72px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-sm": ["28px", { "lineHeight": "36px", "fontWeight": "500" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-md": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .hover-reveal-content {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 300ms ease-out, transform 300ms ease-out;
+        }
+        .product-card:hover .hover-reveal-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- TopNavBar -->
+<nav class="bg-surface/80 dark:bg-surface/80 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-secondary/20 transition-all duration-300 ease-in-out">
+<div class="max-w-[1440px] mx-auto px-margin flex justify-between items-center h-24">
+<!-- Brand Logo -->
+<a class="font-display-lg text-headline-sm font-bold tracking-tighter text-primary dark:text-on-primary-fixed" href="#">
+                HEIRLOOM
+            </a>
+<!-- Navigation Links (Center) -->
+<ul class="hidden md:flex space-x-8">
+<li><a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-300 ease-out" href="#">Fashion</a></li>
+<li><a class="font-label-md text-label-md uppercase tracking-widest text-primary dark:text-on-primary-fixed border-b border-primary pb-1 transition-colors duration-300 ease-out" href="#">Electronics</a></li>
+<li><a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-300 ease-out" href="#">Artisans</a></li>
+<li><a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-300 ease-out" href="#">Curations</a></li>
+</ul>
+<!-- Trailing Icons -->
+<div class="flex items-center space-x-6 text-primary dark:text-on-primary-fixed">
+<button aria-label="shopping_bag" class="hover:text-primary transition-colors duration-300 ease-out">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+<button aria-label="person" class="hover:text-primary transition-colors duration-300 ease-out">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content Layout -->
+<main class="pt-[160px] pb-unit-xxl max-w-[1440px] mx-auto px-margin flex gap-gutter">
+<!-- Sidebar Filters -->
+<aside class="w-64 hidden lg:flex flex-col flex-shrink-0">
+<div class="sticky top-[120px] space-y-unit-xl pr-unit-md">
+<!-- Breadcrumbs -->
+<nav aria-label="Breadcrumb" class="mb-unit-lg">
+<ol class="flex items-center space-x-2 font-label-sm text-label-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Home</a></li>
+<li><span class="mx-1">/</span></li>
+<li aria-current="page" class="text-primary font-semibold">Electronics</li>
+</ol>
+</nav>
+<h2 class="font-headline-sm text-headline-sm mb-unit-lg text-primary">Filters</h2>
+<!-- Filter Category 1 -->
+<div class="border-b border-secondary/20 pb-unit-md">
+<h3 class="font-label-md text-label-md mb-unit-sm text-primary uppercase tracking-widest">Brand</h3>
+<ul class="space-y-2 font-body-sm text-body-sm text-on-surface-variant">
+<li>
+<label class="flex items-center space-x-2 cursor-pointer group">
+<input class="form-checkbox h-4 w-4 text-primary border-outline-variant rounded-sm focus:ring-primary focus:ring-offset-surface bg-transparent transition duration-200" type="checkbox"/>
+<span class="group-hover:text-primary transition-colors">Acoustica</span>
+</label>
+</li>
+<li>
+<label class="flex items-center space-x-2 cursor-pointer group">
+<input class="form-checkbox h-4 w-4 text-primary border-outline-variant rounded-sm focus:ring-primary focus:ring-offset-surface bg-transparent transition duration-200" type="checkbox"/>
+<span class="group-hover:text-primary transition-colors">NovaTech</span>
+</label>
+</li>
+<li>
+<label class="flex items-center space-x-2 cursor-pointer group">
+<input checked="" class="form-checkbox h-4 w-4 text-primary border-outline-variant rounded-sm focus:ring-primary focus:ring-offset-surface bg-transparent transition duration-200" type="checkbox"/>
+<span class="group-hover:text-primary transition-colors">Zenith Audio</span>
+</label>
+</li>
+</ul>
+</div>
+<!-- Filter Category 2 -->
+<div class="border-b border-secondary/20 pb-unit-md">
+<h3 class="font-label-md text-label-md mb-unit-sm text-primary uppercase tracking-widest">Price Range</h3>
+<div class="space-y-4">
+<input class="w-full h-1 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-primary" max="1000" min="0" type="range" value="500"/>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>$0</span>
+<span>$1000+</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Product Grid Area -->
+<section class="flex-1 w-full">
+<!-- Sorting & Results Count -->
+<div class="flex justify-between items-end mb-unit-lg pb-unit-sm border-b border-secondary/20">
+<h1 class="font-headline-lg text-headline-lg text-primary">Precision Electronics</h1>
+<div class="flex items-center space-x-4">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Showing 1-12 of 48 items</span>
+<select class="form-select bg-transparent border-0 border-b border-secondary/50 font-label-sm text-label-sm text-primary focus:ring-0 focus:border-primary py-1 pr-8 cursor-pointer transition-colors duration-300">
+<option>Sort by: Featured</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+<option>Newest Arrivals</option>
+</select>
+</div>
+</div>
+<!-- Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter">
+<!-- Product Card 1 -->
+<article class="product-card group relative flex flex-col bg-surface-container-low border border-transparent hover:border-secondary/20 transition-all duration-500 ease-out cursor-pointer p-unit-md rounded-DEFAULT">
+<div class="relative w-full aspect-square mb-unit-md overflow-hidden bg-surface-variant rounded-DEFAULT">
+<img alt="Product Image" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A pair of minimalist, premium over-ear noise-canceling headphones resting on a textured gray stone surface. The lighting is soft and directional, highlighting the matte black finish and brushed aluminum accents. The setting is clean, modern, and high-key, conveying a sense of luxury and precision engineering. The mood is calm and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuY27lPNipHyftr6QkksPhF_pEuxSN6A3X9HZLsW_QN9qvTy8zH0Gftp42T5n37vZj--8PdXVIFtZz-w6WZs5Odez_FRso8WdpQz2pGX6bNMcKSkleiWzRpeeCRY7Y-Qh7pgseYRogeWDR_-fpoaRbsTmEDecNG8WbtBiFjT0TUCDhzeZkNkKxgr39A0yIwGIYXUzkWNbXArFjQydA-Oh6-_lL2QCOSZ5qfdqDT8yjc8IC0aatDtLPmOQi7AvHKR_wcKM7pH--GXfa"/>
+<!-- Hover Action (Quick Add) -->
+<div class="absolute inset-0 bg-surface/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 ease-out">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-full hover:bg-surface-tint transition-colors duration-300">
+                                Quick View
+                            </button>
+</div>
+</div>
+<div class="flex flex-col flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-label-md text-label-md text-primary truncate pr-4">Zenith A1 Pro</h3>
+<span class="font-label-md text-label-md text-primary">$349</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-md line-clamp-2">Active Noise Canceling Headphones</p>
+<!-- Hidden Details revealed on hover -->
+<div class="mt-auto pt-unit-sm border-t border-secondary/10 hover-reveal-content">
+<ul class="font-label-sm text-label-sm text-on-surface-variant space-y-1">
+<li class="flex items-center"><span class="w-1 h-1 bg-secondary rounded-full mr-2"></span>40hr Battery</li>
+<li class="flex items-center"><span class="w-1 h-1 bg-secondary rounded-full mr-2"></span>Hi-Res Audio</li>
+</ul>
+</div>
+</div>
+</article>
+<!-- Product Card 2 -->
+<article class="product-card group relative flex flex-col bg-surface-container-low border border-transparent hover:border-secondary/20 transition-all duration-500 ease-out cursor-pointer p-unit-md rounded-DEFAULT">
+<div class="relative w-full aspect-square mb-unit-md overflow-hidden bg-surface-variant rounded-DEFAULT">
+<img alt="Product Image" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A sleek, modern smartwatch with a circular OLED display showing a minimalist analog face, paired with a finely woven titanium band. It sits elegantly on a piece of light ivory marble. The lighting is bright and diffuse, casting very soft shadows. The aesthetic is premium, high-tech, and minimal. The mood is precise and refined." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWbGX2D3HHk62VGiRhZHRVYkOH7m3_JNgykoXqQae-oab-yQXWS1zrXLQVI24Vfuil5FMU5lBG5z7Wh3K5kxBQEoWmsCVae4yvDP1jQrNJWZeZXf4yGnHLkWEtKhKcqYOPKDYTRClLgNxHmP2I-PxyV_xGCuZCzXP-TTSTu-7LeB4K7TuWLe_7Vi7F85il2itUiiMFeEoUdYPNXRXsO2sHueG-GP1O3FLmBnzih4jpDWHaKo9Uwvdd1yVD4jtmrgZQMwskPaWzhmoE"/>
+<div class="absolute inset-0 bg-surface/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 ease-out">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-full hover:bg-surface-tint transition-colors duration-300">
+                                Quick View
+                            </button>
+</div>
+</div>
+<div class="flex flex-col flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-label-md text-label-md text-primary truncate pr-4">Chronos Series V</h3>
+<span class="font-label-md text-label-md text-primary">$599</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-md line-clamp-2">Titanium Smart Chronograph</p>
+<div class="mt-auto pt-unit-sm border-t border-secondary/10 hover-reveal-content">
+<ul class="font-label-sm text-label-sm text-on-surface-variant space-y-1">
+<li class="flex items-center"><span class="w-1 h-1 bg-secondary rounded-full mr-2"></span>Sapphire Glass</li>
+<li class="flex items-center"><span class="w-1 h-1 bg-secondary rounded-full mr-2"></span>100m Water Resist</li>
+</ul>
+</div>
+</div>
+</article>
+<!-- Product Card 3 -->
+<article class="product-card group relative flex flex-col bg-surface-container-low border border-transparent hover:border-secondary/20 transition-all duration-500 ease-out cursor-pointer p-unit-md rounded-DEFAULT">
+<div class="relative w-full aspect-square mb-unit-md overflow-hidden bg-surface-variant rounded-DEFAULT">
+<img alt="Product Image" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A sculptural, high-fidelity wireless speaker featuring a combination of warm walnut wood veneer and a matte black acoustic fabric grille. It is positioned on a minimalist white oak table in a sunlit, modern living space. The lighting creates a warm, inviting atmosphere with a light-mode aesthetic. The mood is organic yet technologically advanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVrrGKU8xkUJ018aE4Q_tXFkBw1QL9lu1g9D6QJGvVQ0Z2AQNspEXq6sNSKH0vA2wFLJ1czZ7bjYo0PbdedfgjtAJMaJVrmE6e78LgOgp76I6rlTv5TGDrQqsz3AItd8ofPuQg1Nbljb2i58DiKQfDUKOaK0OJbpHinAik4H8dLIPD-fxx6LeYQR9UfazAwZSYZJxnLS482u3ELAtfwsfPmXKeLJKqsaprlkpF4igmGA7rOwPWrTqwiFFkf5YFCzGABLLbK0S302Eb"/>
+<div class="absolute inset-0 bg-surface/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 ease-out">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-full hover:bg-surface-tint transition-colors duration-300">
+                                Quick View
+                            </button>
+</div>
+</div>
+<div class="flex flex-col flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-label-md text-label-md text-primary truncate pr-4">Odeon Sound Stage</h3>
+<span class="font-label-md text-label-md text-primary">$899</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-md line-clamp-2">Multi-room Architectural Speaker</p>
+<div class="mt-auto pt-unit-sm border-t border-secondary/10 hover-reveal-content">
+<ul class="font-label-sm text-label-sm text-on-surface-variant space-y-1">
+<li class="flex items-center"><span class="w-1 h-1 bg-secondary rounded-full mr-2"></span>Spatial Audio</li>
+<li class="flex items-center"><span class="w-1 h-1 bg-secondary rounded-full mr-2"></span>Walnut Finish</li>
+</ul>
+</div>
+</div>
+</article>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-unit-xl border-t border-secondary/20 bg-surface dark:bg-surface opacity-100">
+<div class="max-w-[1440px] mx-auto px-margin grid grid-cols-12 gap-gutter">
+<!-- Brand / Logo Area -->
+<div class="col-span-12 md:col-span-4 mb-unit-lg md:mb-0">
+<h2 class="font-display-lg text-headline-md text-primary mb-4">HEIRLOOM</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 HEIRLOOM HYPERLOCAL. ALL RIGHTS RESERVED.</p>
+</div>
+<!-- Links Area -->
+<div class="col-span-12 md:col-span-8 flex flex-wrap gap-x-unit-lg gap-y-unit-md justify-start md:justify-end">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-opacity duration-300" href="#">Sustainability</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-opacity duration-300" href="#">Shipping</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-opacity duration-300" href="#">Terms</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-opacity duration-300" href="#">Privacy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-opacity duration-300" href="#">Careers</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NextGen Commerce - Sign In</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Source+Serif+4:wght@400;600&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-container": "#ede1d4",
+                      "inverse-surface": "#32302c",
+                      "on-surface": "#1d1c18",
+                      "on-tertiary-fixed": "#1c1b1a",
+                      "surface-container-high": "#ece7e1",
+                      "on-tertiary-container": "#868382",
+                      "surface-bright": "#fef9f2",
+                      "on-primary-fixed-variant": "#474746",
+                      "outline": "#747878",
+                      "secondary-fixed-dim": "#d0c5b9",
+                      "tertiary": "#000000",
+                      "on-secondary-fixed": "#201b13",
+                      "error": "#ba1a1a",
+                      "inverse-primary": "#c8c6c5",
+                      "on-primary-fixed": "#1c1b1b",
+                      "secondary": "#655d54",
+                      "surface-tint": "#5f5e5e",
+                      "surface-container": "#f2ede6",
+                      "tertiary-container": "#1c1b1a",
+                      "surface-variant": "#e6e2db",
+                      "error-container": "#ffdad6",
+                      "primary-fixed": "#e5e2e1",
+                      "on-secondary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed-variant": "#484645",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#f5f0e9",
+                      "on-error-container": "#93000a",
+                      "surface-container-low": "#f8f3ec",
+                      "secondary-fixed": "#ede1d4",
+                      "surface-container-lowest": "#ffffff",
+                      "outline-variant": "#c4c7c7",
+                      "surface-container-highest": "#e6e2db",
+                      "tertiary-fixed-dim": "#cac6c4",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-container": "#6b6359",
+                      "on-background": "#1d1c18",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "primary": "#000000",
+                      "background": "#fef9f2",
+                      "primary-container": "#1c1b1b",
+                      "surface": "#fef9f2",
+                      "on-primary-container": "#858383",
+                      "tertiary-fixed": "#e6e2df",
+                      "surface-dim": "#ded9d3",
+                      "on-surface-variant": "#444748",
+                      "on-secondary-fixed-variant": "#4d463d"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit-xxl": "128px",
+                      "unit-sm": "8px",
+                      "columns": "12",
+                      "unit-xs": "4px",
+                      "max-width": "1440px",
+                      "margin": "64px",
+                      "unit-xl": "64px",
+                      "unit-lg": "32px",
+                      "unit-md": "16px",
+                      "gutter": "32px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Playfair Display"
+                      ],
+                      "headline-lg": [
+                              "Playfair Display"
+                      ],
+                      "body-lg": [
+                              "\"Source Serif 4\""
+                      ],
+                      "display-xl": [
+                              "Playfair Display"
+                      ],
+                      "display-lg": [
+                              "Playfair Display"
+                      ],
+                      "label-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "label-sm": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-md": [
+                              "\"Source Serif 4\""
+                      ],
+                      "headline-sm": [
+                              "Playfair Display"
+                      ],
+                      "body-sm": [
+                              "\"Source Serif 4\""
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-xl": [
+                              "72px",
+                              {
+                                      "lineHeight": "84px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "60px",
+                              {
+                                      "lineHeight": "72px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-sm": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex font-body-md overflow-x-hidden">
+<!-- Top Navigation for Minimalist Context (No Shell Navs as this is a transactional page) -->
+<header class="absolute top-0 left-0 w-full z-10 px-margin py-unit-lg flex justify-between items-center bg-transparent">
+<div class="font-display-lg text-display-lg text-primary tracking-tighter">
+            NextGen
+        </div>
+<div class="hidden md:flex gap-unit-md">
+<a class="font-label-md text-label-md text-primary hover:opacity-70 transition-opacity" href="#">Contact Support</a>
+</div>
+</header>
+<!-- Main Content Split -->
+<div class="flex-1 flex flex-col md:flex-row w-full h-screen max-w-max-width mx-auto">
+<!-- Form Section -->
+<div class="w-full md:w-1/2 flex items-center justify-center p-gutter relative z-0 h-full mt-24 md:mt-0">
+<div class="w-full max-w-[440px] flex flex-col gap-unit-lg">
+<div class="flex flex-col gap-unit-xs">
+<h1 class="font-headline-lg text-headline-lg text-primary text-center md:text-left">Welcome Back</h1>
+<p class="font-body-md text-body-md text-secondary text-center md:text-left">Enter your details to access your account.</p>
+</div>
+<form class="flex flex-col gap-unit-md mt-unit-sm">
+<div class="flex flex-col gap-unit-xs relative">
+<label class="font-label-sm text-label-sm text-secondary uppercase tracking-widest" for="email">Email Address</label>
+<input class="w-full bg-transparent border-0 border-b border-secondary/30 focus:border-primary focus:ring-0 px-0 py-unit-sm font-body-md text-primary transition-colors placeholder:text-secondary-fixed-dim" id="email" name="email" placeholder="name@domain.com" required="" type="email"/>
+</div>
+<div class="flex flex-col gap-unit-xs relative">
+<div class="flex justify-between items-center">
+<label class="font-label-sm text-label-sm text-secondary uppercase tracking-widest" for="password">Password</label>
+<a class="font-label-sm text-label-sm text-secondary hover:text-primary transition-colors underline decoration-secondary/30 underline-offset-4" href="#">Forgot?</a>
+</div>
+<input class="w-full bg-transparent border-0 border-b border-secondary/30 focus:border-primary focus:ring-0 px-0 py-unit-sm font-body-md text-primary transition-colors placeholder:text-secondary-fixed-dim" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+</div>
+<div class="mt-unit-md flex flex-col gap-unit-sm">
+<button class="w-full bg-primary text-on-primary py-4 font-label-md text-label-md uppercase tracking-widest hover:bg-inverse-surface transition-all duration-300 flex items-center justify-center gap-2 group" type="submit">
+                            Sign In
+                            <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
+</button>
+<div class="relative flex py-unit-sm items-center">
+<div class="flex-grow border-t border-secondary/20"></div>
+<span class="flex-shrink-0 mx-4 text-secondary font-label-sm text-label-sm uppercase tracking-widest">Or</span>
+<div class="flex-grow border-t border-secondary/20"></div>
+</div>
+<button class="w-full bg-transparent border border-secondary/30 text-primary py-4 font-label-md text-label-md tracking-widest hover:bg-surface-container transition-all duration-300 flex items-center justify-center gap-3" type="button">
+<!-- Simple Google Icon SVG -->
+<svg class="w-5 h-5" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+                            Sign in with Google
+                        </button>
+</div>
+</form>
+<p class="font-body-md text-body-md text-secondary text-center mt-unit-lg">
+                    Don't have an account? 
+                    <a class="text-primary font-body-md text-body-md hover:opacity-70 transition-opacity underline decoration-primary/30 underline-offset-4" href="#">Create an account</a>
+</p>
+</div>
+</div>
+<!-- Image Section -->
+<div class="hidden md:block w-1/2 h-full p-unit-lg relative">
+<div class="w-full h-full relative overflow-hidden rounded-xl bg-surface-container-high">
+<img class="w-full h-full object-cover absolute inset-0" data-alt="A high-end editorial photograph of a luxury minimalist timepiece resting on a pristine, textured ivory marble pedestal. The lighting is soft, diffused, and cinematic, casting subtle, long shadows that emphasize the watch's premium materials. The overall aesthetic is incredibly clean, sophisticated, and aligns perfectly with a modern 'New Heritage' brand identity, utilizing a strict palette of soft creams, taupes, and deep charcoal blacks to evoke quiet confidence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhC269nof46HVnjB3oAGjb2QyCCnYAsl5Fccsx9jIzo1plHtmSvd2df8flXH8knjsmukT9iKi8eDFORUpAig9AWxXAGekB88a9zAgXwnxitFZ9ZuTTf-9iwW6-A3nD6GGXBYDEzfoFSKhbPrrSHsg-QMs8OvgfNyd4q4CsBjOilU7ZSLufBtlkd_ezYiA3RQxIT07UUrs2ZBpVln6o8FHZX-D1W1NRehqtoI3oXeevk8DydrCsLbOCp52wbYQT4rDhQBvHul2yN63U"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+<div class="absolute bottom-unit-xl left-unit-xl right-unit-xl text-on-primary">
+<p class="font-headline-md text-headline-md mb-unit-sm max-w-lg leading-tight">"Curating objects of exceptional clarity and enduring value."</p>
+<p class="font-label-md text-label-md uppercase tracking-widest opacity-80">The Heritage Collection</p>
+</div>
+</div>
+</div>
+</div>
+</body></html>

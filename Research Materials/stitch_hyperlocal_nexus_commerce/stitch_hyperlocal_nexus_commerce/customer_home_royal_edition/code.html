@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NextGen - Refined Hyperlocal Selection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#cac6c0",
+                        "surface-container-low": "#f8f3ec",
+                        "surface-container-highest": "#e7e2db",
+                        "inverse-primary": "#c8c6c5",
+                        "tertiary-container": "#1c1c18",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#63635f",
+                        "secondary-fixed": "#e4e2dd",
+                        "tertiary-fixed": "#e6e2dc",
+                        "on-background": "#1d1b18",
+                        "on-tertiary-fixed-variant": "#484742",
+                        "background": "#fef9f2",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "secondary-container": "#e1dfdb",
+                        "on-secondary-fixed": "#1b1c19",
+                        "surface-container-high": "#ece7e1",
+                        "secondary-fixed-dim": "#c8c6c2",
+                        "primary-fixed": "#e5e2e1",
+                        "primary-container": "#1c1b1b",
+                        "on-tertiary-container": "#86837e",
+                        "surface-dim": "#ded9d3",
+                        "on-surface-variant": "#444748",
+                        "surface-tint": "#5f5e5e",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#1c1c18",
+                        "error-container": "#ffdad6",
+                        "secondary": "#5e5e5b",
+                        "surface-container": "#f2ede7",
+                        "surface-bright": "#fef9f2",
+                        "surface": "#fef9f2",
+                        "on-primary-container": "#858383",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#474744",
+                        "tertiary": "#000000",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#747878",
+                        "primary": "#000000",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#32302c",
+                        "on-primary-fixed-variant": "#474746",
+                        "inverse-on-surface": "#f5f0ea",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c4c7c7",
+                        "surface-variant": "#e7e2db",
+                        "on-surface": "#1d1b18"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "margin-mobile": "24px",
+                        "gutter": "32px",
+                        "margin-desktop": "80px",
+                        "container-max": "1280px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Playfair Display"],
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "subheading-caps": ["Manrope"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "label-sm": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "subheading-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.15em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "label-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .hairline-border {
+            border: 0.5px solid #000000;
+        }
+        .hairline-border-b {
+            border-bottom: 0.5px solid #000000;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background dark:bg-background border-b border-secondary-container dark:border-on-tertiary-fixed-variant transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full max-w-container-max mx-auto">
+<button class="text-primary dark:text-on-background hover:opacity-70 transition-opacity flex items-center justify-center p-2 focus:outline-none focus:ring-1 focus:ring-outline-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<div class="font-display-lg text-headline-md tracking-tighter text-primary dark:text-on-background">
+                NEXTGEN
+            </div>
+<button class="text-primary dark:text-on-background hover:opacity-70 transition-opacity flex items-center justify-center p-2 focus:outline-none focus:ring-1 focus:ring-outline-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_bag</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-16 pb-32">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-gutter md:mt-margin-desktop mb-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-5 order-2 md:order-1 flex flex-col justify-center">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">
+                        Refined Hyperlocal Selection
+                    </h1>
+<p class="font-body-lg text-body-lg text-secondary mb-12 max-w-md">
+                        Curated essentials from the finest local artisans and global brands, delivered with uncompromising precision.
+                    </p>
+<div>
+<button class="bg-primary text-on-primary px-8 py-4 font-label-sm text-label-sm uppercase tracking-widest hover:bg-surface-tint transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-offset-background">
+                            Explore Collection
+                        </button>
+</div>
+</div>
+<div class="md:col-span-7 order-1 md:order-2">
+<div class="relative w-full aspect-[4/5] md:aspect-[3/2] overflow-hidden hairline-border bg-surface-container-low">
+<img alt="Luxury Leather Goods" class="w-full h-full object-cover" data-alt="A high-fashion editorial style photograph of a luxurious, minimalist leather handbag resting on a stark ivory pedestal. The lighting is soft and natural, casting deep, sophisticated shadows. The aesthetic is 'quiet luxury', employing a palette of charcoal, warm taupe, and pristine whites, evoking a sense of calm authority and high-end boutique elegance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfrQWfRTIeFEPa5-NeW7AjT-kRpnxmwjDTVi4Pk444rx-vA-vOLbATR16keMJJtaMFSUINi7LARE9ezpPJKSIBSeZYuNR-g6TIcV6mfg9N-CLsGS7zQn-AKpWCN9ioAqCrID09dgOdx2P4YApPS3xjJRKSKQRwxRMitl0ilk8e6QnCWmYJFycCQ0BYtw_J7y7OUFzaWAYkmEbEzXPkVBbx3hfmgYbBS4Xw82HNUDTFMGWj3BZXM-nPK0CIzyN9sDe83kRmMB2cTo4H"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Categories (Text-Based Navigation) -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap">
+<div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-16 border-y border-secondary-container py-8">
+<a class="font-subheading-caps text-subheading-caps text-primary uppercase tracking-widest hover:text-secondary transition-colors duration-200 relative group" href="#">
+                    Fashion
+                    <span class="absolute -bottom-2 left-0 w-full h-[1px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+</a>
+<a class="font-subheading-caps text-subheading-caps text-primary uppercase tracking-widest hover:text-secondary transition-colors duration-200 relative group" href="#">
+                    Electronics
+                    <span class="absolute -bottom-2 left-0 w-full h-[1px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+</a>
+<a class="font-subheading-caps text-subheading-caps text-primary uppercase tracking-widest hover:text-secondary transition-colors duration-200 relative group" href="#">
+                    Home
+                    <span class="absolute -bottom-2 left-0 w-full h-[1px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+</a>
+</div>
+</section>
+<!-- Featured / New Arrivals (Asymmetric Layout) -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap">
+<div class="flex justify-between items-end mb-12">
+<h2 class="font-headline-md text-headline-md text-primary">New Arrivals</h2>
+<a class="font-label-sm text-label-sm text-secondary hover:text-primary transition-colors border-b border-secondary hover:border-primary pb-1" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Item -->
+<div class="md:col-span-8 group cursor-pointer">
+<div class="relative w-full aspect-[4/3] overflow-hidden hairline-border bg-surface-container-low mb-6">
+<img alt="High-End Minimalist Watch" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A detailed, macro shot of an exquisite, minimalist mechanical watch featuring a stark white dial and a matte charcoal strap, resting on a textured linen surface. The composition is asymmetrical, utilizing generous negative space. The lighting is diffused, highlighting the brushed steel casing. The overall mood is sophisticated, precision-focused, and unmistakably premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-CvJPh5tCzJfxjkjaq2fkCRZWcrVCTsupF3wY1zFJkwEz895ANkTI1DJyKA55TaZUo0E-9uzXN6ZMhlXWxFA5mwhdIFmvO2VlwUWVm7VlYrKhWlpZXN0od9oEpWXnzZNvnhFg8X9SBtIdnS4YZvEqP3Kque-ycrrF1IVKCz4xWG-XXCyY0bPKAp60XFpeBIDd7HzKY3ybt9czsk6_1XV6cqD_-AsqatL-2I4kgEvLUkCI29Pc3K5_aIdESbXefN2LEF4gruiBHI9u"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<span class="font-subheading-caps text-subheading-caps text-secondary mb-2 block">Electronics / Luxury</span>
+<h3 class="font-body-lg text-body-lg text-primary">The Precision Chronograph</h3>
+</div>
+<span class="font-body-md text-body-md text-primary">$4,200</span>
+</div>
+</div>
+<!-- Small Item -->
+<div class="md:col-span-4 group cursor-pointer mt-12 md:mt-0">
+<div class="relative w-full aspect-[3/4] overflow-hidden hairline-border bg-surface-container-low mb-6">
+<img alt="Linen Garment" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A curated editorial image showcasing a beautifully draped, lightweight linen garment in a subtle bone color, hung against a plain, off-white studio wall. The styling is effortless yet intentional, embodying the 'quiet luxury' aesthetic. Soft, natural daylight creates gentle folds and deepens the texture of the fabric, maintaining a minimalist, high-end editorial feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7fbdz-BKZbb9VQuPRE6y4AijJ5siy2zwACV96EPoIv2XKlSoqm4SmK8cNcK1hpSGtQo_ivNiTmNLi0aG7YVd78Un2ns2eWAQzSeYj-7kfQFcm5ILnxVibl9dfYKKLhHu_aJEhaICney7u8vYyIbGE0EKT0QYeNh122Zfu0bmS0WEb2-jbB2ncUu7-VrFLXs2u7V2CePY8PfSL3ClfRFHUZTSkclLIywLrOaL8F0W_tlMhnBFidY7HzjxQSKoCDp8iGOUjidEswM-g"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<span class="font-subheading-caps text-subheading-caps text-secondary mb-2 block">Fashion / Apparel</span>
+<h3 class="font-body-md text-body-md text-primary">Structured Linen Tunic</h3>
+</div>
+<span class="font-body-md text-body-md text-primary">$385</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only, destination logic applies) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-margin-mobile py-4 bg-background dark:bg-background border-t border-secondary-container dark:border-on-tertiary-fixed-variant z-50 transition-colors duration-200">
+<a aria-label="home" class="flex flex-col items-center justify-center text-primary dark:text-on-background border-t-2 border-primary pt-2 hover:text-primary dark:hover:text-on-background w-16" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-[10px] uppercase tracking-wider">home</span>
+</a>
+<a aria-label="search" class="flex flex-col items-center justify-center text-secondary dark:text-on-surface-variant pt-2 hover:text-primary dark:hover:text-on-background w-16" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">search</span>
+<span class="font-label-sm text-[10px] uppercase tracking-wider">search</span>
+</a>
+<a aria-label="shopping_cart" class="flex flex-col items-center justify-center text-secondary dark:text-on-surface-variant pt-2 hover:text-primary dark:hover:text-on-background w-16" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">shopping_cart</span>
+<span class="font-label-sm text-[10px] uppercase tracking-wider">cart</span>
+</a>
+<a aria-label="receipt_long" class="flex flex-col items-center justify-center text-secondary dark:text-on-surface-variant pt-2 hover:text-primary dark:hover:text-on-background w-16" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">receipt_long</span>
+<span class="font-label-sm text-[10px] uppercase tracking-wider">orders</span>
+</a>
+<a aria-label="person" class="flex flex-col items-center justify-center text-secondary dark:text-on-surface-variant pt-2 hover:text-primary dark:hover:text-on-background w-16" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-label-sm text-[10px] uppercase tracking-wider">profile</span>
+</a>
+</nav>
+</body></html>

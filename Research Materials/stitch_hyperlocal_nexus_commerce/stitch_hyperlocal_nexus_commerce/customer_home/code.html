@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NextGen Commerce - Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary": "#ffffff",
+                      "on-primary-fixed-variant": "#474746",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-fixed-dim": "#cac6c4",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "on-background": "#1c1b1b",
+                      "secondary-fixed": "#e4e2de",
+                      "on-tertiary-container": "#868382",
+                      "surface-dim": "#ddd9d8",
+                      "tertiary-container": "#1c1b1a",
+                      "tertiary": "#000000",
+                      "surface-variant": "#e5e2e1",
+                      "surface": "#fdf8f8",
+                      "surface-container-highest": "#e5e2e1",
+                      "secondary-container": "#e1dfdc",
+                      "on-tertiary-fixed-variant": "#484645",
+                      "outline-variant": "#c4c7c7",
+                      "on-primary-container": "#858383",
+                      "secondary-fixed-dim": "#c8c6c3",
+                      "on-surface": "#1c1b1b",
+                      "primary-fixed": "#e5e2e1",
+                      "on-secondary-fixed": "#1b1c1a",
+                      "surface-container-high": "#ebe7e6",
+                      "primary-container": "#1c1b1b",
+                      "inverse-surface": "#313030",
+                      "on-tertiary-fixed": "#1c1b1a",
+                      "inverse-primary": "#c8c6c5",
+                      "inverse-on-surface": "#f4f0ef",
+                      "on-error-container": "#93000a",
+                      "secondary": "#5e5e5c",
+                      "surface-tint": "#5f5e5e",
+                      "on-secondary-container": "#636360",
+                      "outline": "#747878",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed": "#1c1b1b",
+                      "error": "#ba1a1a",
+                      "background": "#fdf8f8",
+                      "surface-container": "#f1edec",
+                      "on-secondary-fixed-variant": "#474744",
+                      "tertiary-fixed": "#e6e2df",
+                      "on-error": "#ffffff",
+                      "primary": "#000000",
+                      "surface-bright": "#fdf8f8",
+                      "on-secondary": "#ffffff",
+                      "surface-container-low": "#f7f3f2",
+                      "error-container": "#ffdad6",
+                      "on-surface-variant": "#444748"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "base": "8px",
+                      "section-gap": "80px",
+                      "margin-desktop": "40px",
+                      "margin-mobile": "16px",
+                      "container-max": "1280px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Playfair Display"
+                      ],
+                      "headline-sm": [
+                              "Playfair Display"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Playfair Display"
+                      ],
+                      "headline-md": [
+                              "Playfair Display"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-sm": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+          .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24;
+          }
+          .material-symbols-outlined.fill-icon {
+              font-variation-settings: 'FILL' 1;
+          }
+          
+          /* Custom scrollbar for horizontal scrolling sections */
+          .hide-scrollbar::-webkit-scrollbar {
+              display: none;
+          }
+          .hide-scrollbar {
+              -ms-overflow-style: none;
+              scrollbar-width: none;
+          }
+      </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-tertiary flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 sticky top-0 z-50">
+<div class="flex items-center gap-2 hover:opacity-90 transition-opacity cursor-pointer">
+<span class="material-symbols-outlined text-primary dark:text-on-primary">location_on</span>
+<span class="font-body-sm text-body-sm text-secondary dark:text-on-secondary-container">Brooklyn, NY</span>
+</div>
+<div class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-primary dark:text-on-primary font-bold">
+            NextGen
+        </div>
+<div class="hover:opacity-90 transition-opacity cursor-pointer scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-primary dark:text-on-primary">notifications</span>
+</div>
+</header>
+<!-- Desktop Sidebar Placeholder (Hidden on Mobile) -->
+<nav class="hidden md:flex flex-col h-full fixed left-0 top-0 py-6 gap-2 bg-surface-container-low dark:bg-tertiary-container docked h-full w-64 left-0 border-r border-surface-variant dark:border-tertiary-fixed-variant flat no shadows z-40 mt-[72px]">
+<div class="px-6 mb-8">
+<span class="font-headline-sm text-headline-sm text-primary">Vendor Portal</span>
+</div>
+<a class="bg-primary dark:bg-on-primary text-on-primary dark:text-primary rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 duration-150 ease-linear" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="text-secondary dark:text-on-secondary-container hover:bg-surface-container-highest dark:hover:bg-on-tertiary-container rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high dark:hover:bg-on-tertiary-container transition-colors duration-150 ease-linear" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-body-md text-body-md">Catalog</span>
+</a>
+<a class="text-secondary dark:text-on-secondary-container hover:bg-surface-container-highest dark:hover:bg-on-tertiary-container rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high dark:hover:bg-on-tertiary-container transition-colors duration-150 ease-linear" href="#">
+<span class="material-symbols-outlined">list_alt</span>
+<span class="font-body-md text-body-md">Orders</span>
+</a>
+<a class="text-secondary dark:text-on-secondary-container hover:bg-surface-container-highest dark:hover:bg-on-tertiary-container rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high dark:hover:bg-on-tertiary-container transition-colors duration-150 ease-linear" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</nav>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop md:ml-64 flex flex-col gap-section-gap pt-8 pb-16">
+<!-- Search & Filters -->
+<section class="flex flex-col gap-4">
+<div class="relative w-full max-w-2xl mx-auto">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface border border-surface-variant rounded-full font-body-md text-body-md focus:border-primary focus:ring-0 transition-colors placeholder:text-outline-variant outline-none shadow-sm" placeholder="Search hyperlocal goods..." type="text"/>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar gap-3 pb-2 w-full max-w-2xl mx-auto items-center justify-start md:justify-center">
+<button class="whitespace-nowrap px-4 py-1.5 bg-surface-container-low border border-surface-variant rounded-full font-body-sm text-body-sm text-secondary hover:bg-surface-variant transition-colors">Artisan Bread</button>
+<button class="whitespace-nowrap px-4 py-1.5 bg-surface-container-low border border-surface-variant rounded-full font-body-sm text-body-sm text-secondary hover:bg-surface-variant transition-colors">Handmade</button>
+<button class="whitespace-nowrap px-4 py-1.5 bg-surface-container-low border border-surface-variant rounded-full font-body-sm text-body-sm text-secondary hover:bg-surface-variant transition-colors">Local Produce</button>
+<button class="whitespace-nowrap px-4 py-1.5 bg-surface-container-low border border-surface-variant rounded-full font-body-sm text-body-sm text-secondary hover:bg-surface-variant transition-colors">Ceramics</button>
+<button class="whitespace-nowrap px-4 py-1.5 bg-surface-container-low border border-surface-variant rounded-full font-body-sm text-body-sm text-secondary hover:bg-surface-variant transition-colors">Textiles</button>
+</div>
+</section>
+<!-- Hero Section -->
+<section class="w-full rounded-xl overflow-hidden relative min-h-[400px] flex items-center justify-center bg-surface-container-low">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full opacity-60 mix-blend-multiply" data-alt="A beautifully styled, high-end editorial photograph of curated artisan goods arranged on a rustic wooden table in a sunlit, modern loft space. Soft cream walls reflect natural light. The composition is minimalist and elegant, showcasing a crusty artisan bread, a handmade ceramic bowl, and fresh local produce with a focus on textures and natural, monochromatic colors with subtle warm earth tones. The lighting is soft and bright, creating a quiet luxury aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDeMBVfxda11PFM_p17hlmYqVb8D7hRTEaJuzDQjvjmGneaxk87YfZTZDp4pMUmZl6Uw6mmi1crIIZuGcosT4gvnfCPJmMGs2z7aeS2nJdQQ6K4Fcc_eDVKKIxxpPOJZAwslQYkniV6A0cBKwbISVq6N0861BQ6RJIq98jDK_aKxZ6swgGjdGUeOeeFp222FXHNNz-2Eq3_irnyyRZchIwf91cofdIRePMIlJLPCz6cc-7lWxzzxJLtzMuXwwvDsGKVE2TcFQzJ0Yuc')"></div>
+<div class="relative z-10 text-center max-w-xl px-6">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-4 leading-tight">Hyperlocal Excellence</h1>
+<p class="font-body-lg text-body-lg text-secondary mb-8">Curated, small-batch goods from independent creators in your immediate neighborhood.</p>
+<button class="bg-primary text-on-primary font-body-md text-body-md px-8 py-3 rounded-DEFAULT hover:opacity-90 transition-opacity">Explore Neighborhood</button>
+</div>
+</section>
+<!-- Horizontal Scroll - Trending -->
+<section class="flex flex-col gap-6 w-full overflow-hidden">
+<div class="flex justify-between items-end w-full">
+<h2 class="font-headline-sm text-headline-sm text-primary">Trending Near You</h2>
+<a class="font-body-sm text-body-sm text-secondary hover:text-primary transition-colors border-b border-secondary" href="#">View all</a>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar gap-gutter pb-4 -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0">
+<!-- Product Card 1 -->
+<div class="min-w-[280px] md:min-w-[320px] flex flex-col gap-4 group cursor-pointer">
+<div class="w-full aspect-[8/10] bg-surface-container-low relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A minimalist, high-quality photograph of a beautifully crafted, handmade ceramic mug with a matte speckled glaze resting on a soft cream surface. Clean lines, soft lighting, quiet luxury aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHmgLTLIu-6YrtAtybzHoZ-atABt9dnKbflju_YmSfaikznwKF4ta5-7-XhSqtiVLREdVCPoz5GE06bj94sqln5TQXF7b0KrH_psCGQjlp8hB7_NzWSz3oE7eSHkMWlU1PX6dni0g3SIL2Cvcc4XphCZqRUGNwrE2TjBJR3RJNyUCT06ChVMdcfJ9pGVojA2xclfr1cY7KceviJGtS1lmEtiQ7TbJxjwCR2ocYBbYitLnuCB8CBIqB2aIqP30gmD_SkuBLTWfE64La"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<h3 class="font-body-md text-body-md text-primary">Speckled Ceramic Mug</h3>
+<span class="font-body-md text-body-md text-primary">$32</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">By Studio Ardor</p>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="min-w-[280px] md:min-w-[320px] flex flex-col gap-4 group cursor-pointer">
+<div class="w-full aspect-[8/10] bg-surface-container-low relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A minimalist editorial photograph of a freshly baked, crusty sourdough boule resting on a linen cloth against a bright, airy background. High contrast lighting highlighting the texture of the bread, premium minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3RDT027vbkx-H9ECMM2r-gLXx_V46RUeRml1paL1lB-UcNDHtRN7mLggtjIx1g_YWBRfAMUg9h8FYUPahZIsgrIH9Yi3JK9UxMumya8j8UO979PSOWBujEyQj38D1GBRgdGW7rg593loogWvqdkNWjA1NbcBe2gWzRM1ZMaE1Rgvw0Lz5Z5q7WmttG20nIvxb6Kg2qodQZDzSWk4lAPr4PIjIuDXK1GrDwghXCn9pReSVD9BbzKmoVFssufCD_6Vv450BcvAUj1jO"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<h3 class="font-body-md text-body-md text-primary">Heritage Sourdough Boule</h3>
+<span class="font-body-md text-body-md text-primary">$12</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">By The Local Mill</p>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="min-w-[280px] md:min-w-[320px] flex flex-col gap-4 group cursor-pointer">
+<div class="w-full aspect-[8/10] bg-surface-container-low relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A detailed close-up of a hand-poured soy candle in a sleek, dark amber glass jar sitting on a minimalist concrete coaster. Soft, moody lighting casting gentle shadows, high-end luxury feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAt_35OksVHU2_Rkq-xBrzUKks6beBqptxFfOjLQg9J21Y4QVTS-1eeZdqF3z-8CBAYxMfRH85h4GI9x-eDUdFg5BkUvP-LWFZckyldT4YdCsES_fvhykQFER5YA_DYdu0zH2jY2G66rI68YCxTplgKp9NWMnKDFA0e_MdQ1bLfmmen5bjWeYGOSpt5VkgnHOrpDCq3pFhuy8ys0O61N8L3KTQ7xLa5B5ec4yq5KHHOfemEMphJ0kWqsEU99RhlDWZVJ4hNEtDkuCZ2"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<h3 class="font-body-md text-body-md text-primary">Amber Fig Candle</h3>
+<span class="font-body-md text-body-md text-primary">$45</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">By Luminary Goods</p>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="min-w-[280px] md:min-w-[320px] flex flex-col gap-4 group cursor-pointer">
+<div class="w-full aspect-[8/10] bg-surface-container-low relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A minimalist flat lay photograph of organic, small-batch cold-pressed olive oil in an elegantly shaped clear glass bottle. Placed on a stark white marble surface with stark, dramatic lighting. Premium gourmet aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoCFZeSNcLdKyD_ASeETZeW808u7Pd_fAL6p7bz6GlZIF7hddbokkfY7k40IvGgnQ5C9R7Ewu3VW-SIVzUdbZCCPbyuVM9GG7GMxNh82S7UlCYHwKHIxtsY6nU5cjZfxECQPjjuBVXrWy48muXS0XXYerE39uv17MuAHNhtHFpJDPS-7AQ-UeVtCnbRe93l88iWjHBcoqlXcKOQ34GUWWjOJUY8suk3h5KD4CW_Yrf6iLreCZOZRJChnPdvI8hIUO8CL2tg3-j9kvN"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<h3 class="font-body-md text-body-md text-primary">Cold-Pressed Olive Oil</h3>
+<span class="font-body-md text-body-md text-primary">$28</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">By Grove &amp; Vine</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Grid - New Arrivals (Bento Style) -->
+<section class="flex flex-col gap-6 w-full">
+<div class="flex justify-between items-end w-full">
+<h2 class="font-headline-sm text-headline-sm text-primary">New Arrivals</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Feature Card (Spans 2 cols on Desktop) -->
+<div class="md:col-span-2 relative group overflow-hidden bg-surface-container-low min-h-[400px] flex flex-col justify-end p-6 cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full group-hover:scale-105 transition-transform duration-700" data-alt="A stunning, high-end editorial shot of a hand-woven linen throw blanket draped effortlessly over a mid-century modern chair. The scene is bathed in soft, diffused natural light from a nearby window, creating a serene, calm mood with muted earth tones and deep contrasts." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBwR1EpNgAnZ7QDcxs-Z2qMxmbAx7rIxLvOU00R0SFtKLczZ02c9pyXVORtOV6EU06wrLgvuTl9JWvxWOO5TR8ZhXyffcU5K0e22UfTJe4Pl8t8u3t1bWXqQdY9Q3D5_HFJBddnonHm63yjH02kIN026dbGqfxhiiD1vMcW_AcR8lJMPgqsSq_N4wmoKpNHSfZHvT8NDtKNlSezETfc0Vsw_arvJiG_0x0q-BOmSNjeGiyk6nLq-STgLNoFWDphmwj2ucCdcrt7prxL')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-tertiary/70 to-transparent"></div>
+<div class="relative z-10 flex justify-between items-end">
+<div class="flex flex-col gap-2 text-on-primary">
+<span class="font-label-caps text-label-caps tracking-widest uppercase">Textiles</span>
+<h3 class="font-headline-sm text-headline-sm">Hand-woven Linen Throw</h3>
+<p class="font-body-sm text-body-sm opacity-80">Woven in Greenpoint</p>
+</div>
+<button class="bg-on-primary text-primary font-body-sm text-body-sm px-4 py-2 rounded-DEFAULT hover:bg-surface-variant transition-colors flex items-center gap-2">
+                             Add <span class="font-body-md text-body-md">$145</span>
+</button>
+</div>
+</div>
+<!-- Standard Grid Card -->
+<div class="flex flex-col gap-4 group cursor-pointer">
+<div class="w-full aspect-[8/10] bg-surface-container-low relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A minimalist photograph of a small batch artisanal honey jar on a pristine white background. High contrast, sharp focus on the golden texture of the honey, elegant typography on the label." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYzocR_lTWyFINISMPKXZhW9X613XBfGNqtFVCaPy_31nPK1aatF38RjW0qGc7CrjqRDqbcwcqcvFe_UTs-r-zrpesgq35VSgg7fWZ_4aRsQeCeDF8SSVA48nB9aYObzNaIVhPB9FnpzuxxDuBJP-d_N-yd85pTXYkRkXRyD1KcNT4klLVlff7Sx5tRDbcOSSeZbkOX1ct0n8prEz0klacYYYOm0TUzWPd-y7gS06I4kMml6mzVPTdgW8qUwHj9zM0tBIZOdq2XKAN"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<h3 class="font-body-md text-body-md text-primary">Raw Wildflower Honey</h3>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">By The Apiary</p>
+<button class="mt-2 w-full border border-primary text-primary bg-transparent font-body-sm text-body-sm py-2 rounded-DEFAULT hover:bg-surface-variant transition-colors">
+                             Add to Cart - $18
+                         </button>
+</div>
+</div>
+<!-- Standard Grid Card -->
+<div class="flex flex-col gap-4 group cursor-pointer">
+<div class="w-full aspect-[8/10] bg-surface-container-low relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A refined product shot of a minimalist, handcrafted leather wallet resting on a dark slate surface. Low-key lighting creates subtle highlights on the rich, textured leather. Premium, understated aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmBD1ssz_y1KCrXpY2RTFgxuRgdOk1DGsk4kjGDQ6Kbwyv9JAJ93VYwbmqTFXY-sRB_T-i1IGC3WyemzJKT15iFhvKJhxYH5cMpcKmxuhCHL9I6AU4LRueJ0oQIHCiHVkQJskp_z9bVXcWQCnaXfxaLhDTczRI-2XeA7AUQqwCom4W7HiuSJKVjgQI-BQpBDouAOizy8vA0i6iGQHRboJvxdXxf03Cv6TB4Ew4wqI4cv3okHgNwhC4nr00uHTojJpC9KSrlBJemLRf"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<h3 class="font-body-md text-body-md text-primary">Minimalist Cardholder</h3>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">By Hide &amp; Stitch</p>
+<button class="mt-2 w-full border border-primary text-primary bg-transparent font-body-sm text-body-sm py-2 rounded-DEFAULT hover:bg-surface-variant transition-colors">
+                             Add to Cart - $65
+                         </button>
+</div>
+</div>
+<!-- Feature Card (Spans 2 cols on Desktop) -->
+<div class="md:col-span-2 relative group overflow-hidden bg-surface-container-low min-h-[400px] flex flex-col justify-end p-6 cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full group-hover:scale-105 transition-transform duration-700" data-alt="An atmospheric, top-down shot of a beautifully plated artisanal charcuterie board featuring locally sourced meats and cheeses on a dark wood cutting board. Moody, directional lighting emphasizing textures and rich colors, luxury food editorial style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuADunUdHDChpb8f6cuyFB1E-EQeSd44jkXaRGmaYk3iGYJHYGX4S_Tlccu4XyMEO53OKOMb_SQyvkHL4kN8UYSlROIVbAwa0g0ak3q4jZ2k56djSuLFRijcejdlFnUhd4-vdorwJexaW6Ms7kgkHWSIIJLSxgQZI8bvxcDLwwR6r-5r96qZBb2KsZ7BfYP8EZ8ovez3udETvXumPVWyEXQ0w59HL7TzWvi3OWplrfcGEIHz0EyDl0F1cgvAA5_ENL3hakRtUeN2bQcf')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-tertiary/70 to-transparent"></div>
+<div class="relative z-10 flex justify-between items-end">
+<div class="flex flex-col gap-2 text-on-primary">
+<span class="font-label-caps text-label-caps tracking-widest uppercase">Provisions</span>
+<h3 class="font-headline-sm text-headline-sm">Curated Charcuterie Box</h3>
+<p class="font-body-sm text-body-sm opacity-80">Sourced from 5 local farms</p>
+</div>
+<button class="bg-on-primary text-primary font-body-sm text-body-sm px-4 py-2 rounded-DEFAULT hover:bg-surface-variant transition-colors flex items-center gap-2">
+                             Add <span class="font-body-md text-body-md">$85</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-surface dark:bg-tertiary border-t border-surface-variant dark:border-tertiary-container flat no shadows">
+<!-- Active: Home -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-on-primary hover:bg-surface-container dark:hover:bg-tertiary-container transition-all duration-200 ease-in-out px-4 py-2 rounded-lg" href="#">
+<span class="material-symbols-outlined fill-icon mb-1">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<!-- Inactive: Search -->
+<a class="flex flex-col items-center justify-center text-secondary dark:text-on-tertiary-container hover:bg-surface-container dark:hover:bg-tertiary-container transition-all duration-200 ease-in-out px-4 py-2 rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1">search</span>
+<span class="font-label-caps text-label-caps">Search</span>
+</a>
+<!-- Inactive: Cart -->
+<a class="flex flex-col items-center justify-center text-secondary dark:text-on-tertiary-container hover:bg-surface-container dark:hover:bg-tertiary-container transition-all duration-200 ease-in-out px-4 py-2 rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1">shopping_bag</span>
+<span class="font-label-caps text-label-caps">Cart</span>
+</a>
+<!-- Inactive: Orders -->
+<a class="flex flex-col items-center justify-center text-secondary dark:text-on-tertiary-container hover:bg-surface-container dark:hover:bg-tertiary-container transition-all duration-200 ease-in-out px-4 py-2 rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1">receipt_long</span>
+<span class="font-label-caps text-label-caps">Orders</span>
+</a>
+<!-- Inactive: Profile -->
+<a class="flex flex-col items-center justify-center text-secondary dark:text-on-tertiary-container hover:bg-surface-container dark:hover:bg-tertiary-container transition-all duration-200 ease-in-out px-4 py-2 rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+</nav>
+</body></html>

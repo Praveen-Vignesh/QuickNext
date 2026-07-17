@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HEIRLOOM | Aura Chronograph</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface": "#fef9f2",
+                      "on-primary": "#ffffff",
+                      "surface-tint": "#5f5e5e",
+                      "tertiary-fixed": "#e6e2df",
+                      "tertiary-container": "#1c1b1a",
+                      "inverse-primary": "#c8c6c5",
+                      "on-primary-fixed": "#1c1b1b",
+                      "on-error-container": "#93000a",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "on-tertiary-container": "#868382",
+                      "tertiary": "#000000",
+                      "primary-fixed": "#e5e2e1",
+                      "surface-container-low": "#f8f3ec",
+                      "error-container": "#ffdad6",
+                      "on-surface-variant": "#444748",
+                      "on-secondary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "outline-variant": "#c4c7c7",
+                      "on-tertiary-fixed-variant": "#484645",
+                      "on-primary-fixed-variant": "#474746",
+                      "on-primary-container": "#858383",
+                      "secondary-fixed": "#ede1d4",
+                      "primary": "#000000",
+                      "secondary-fixed-dim": "#d0c5b9",
+                      "on-secondary-container": "#6b6359",
+                      "surface-container-high": "#ece7e1",
+                      "on-surface": "#1d1c18",
+                      "surface-variant": "#e6e2db",
+                      "secondary-container": "#ede1d4",
+                      "on-tertiary": "#ffffff",
+                      "inverse-on-surface": "#f5f0e9",
+                      "background": "#fef9f2",
+                      "outline": "#747878",
+                      "surface-container": "#f2ede6",
+                      "on-background": "#1d1c18",
+                      "secondary": "#655d54",
+                      "on-error": "#ffffff",
+                      "surface-container-highest": "#e6e2db",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed": "#201b13",
+                      "on-secondary-fixed-variant": "#4d463d",
+                      "on-tertiary-fixed": "#1c1b1a",
+                      "primary-container": "#1c1b1b",
+                      "surface-dim": "#ded9d3",
+                      "inverse-surface": "#32302c",
+                      "tertiary-fixed-dim": "#cac6c4",
+                      "surface-bright": "#fef9f2"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit-xxl": "128px",
+                      "unit-md": "16px",
+                      "unit-xs": "4px",
+                      "unit-xl": "64px",
+                      "gutter": "32px",
+                      "margin": "64px",
+                      "max-width": "1440px",
+                      "unit-lg": "32px",
+                      "unit-sm": "8px",
+                      "columns": "12"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "\"Source Serif 4\""
+                      ],
+                      "body-sm": [
+                              "\"Source Serif 4\""
+                      ],
+                      "display-xl": [
+                              "Playfair Display"
+                      ],
+                      "headline-md": [
+                              "Playfair Display"
+                      ],
+                      "label-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "display-lg": [
+                              "Playfair Display"
+                      ],
+                      "headline-sm": [
+                              "Playfair Display"
+                      ],
+                      "headline-lg": [
+                              "Playfair Display"
+                      ],
+                      "label-sm": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-md": [
+                              "\"Source Serif 4\""
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-sm": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-xl": [
+                              "72px",
+                              {
+                                      "lineHeight": "84px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "60px",
+                              {
+                                      "lineHeight": "72px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-sm": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: #fef9f2;
+            color: #1d1c18;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="font-body-md bg-surface text-on-surface antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-secondary/20 transition-all duration-300 ease-in-out">
+<div class="max-w-[1440px] mx-auto px-margin flex justify-between items-center h-24">
+<!-- Brand Logo -->
+<a class="font-display-lg text-headline-sm font-bold tracking-tighter text-primary dark:text-on-primary-fixed" href="#">
+                HEIRLOOM
+            </a>
+<!-- Navigation Links -->
+<nav class="hidden md:flex gap-gutter">
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-300 ease-out" href="#">Fashion</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-300 ease-out" href="#">Electronics</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-300 ease-out" href="#">Artisans</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-primary dark:text-on-primary-fixed border-b border-primary pb-1 hover:text-primary transition-colors duration-300 ease-out" href="#">Curations</a>
+</nav>
+<!-- Trailing Icons -->
+<div class="flex items-center gap-unit-md text-primary dark:text-on-primary-fixed font-label-md text-label-md uppercase tracking-widest">
+<button aria-label="shopping_bag" class="hover:text-primary transition-colors duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button aria-label="person" class="hover:text-primary transition-colors duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-24 max-w-[1440px] mx-auto min-h-screen">
+<div class="flex flex-col lg:flex-row min-h-[calc(100vh-6rem)]">
+<!-- Left: Image Gallery (Scrollable) -->
+<div class="w-full lg:w-7/12 p-margin overflow-y-auto hide-scrollbar space-y-gutter relative pb-unit-xxl">
+<div class="aspect-[3/4] w-full relative bg-surface-container-low rounded-lg overflow-hidden border border-secondary/20">
+<img alt="Aura Chronograph Dial Detail" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" data-alt="A highly detailed, macro photograph of a luxury mechanical watch face, focusing on the intricate gears, hands, and tourbillon. The lighting is dramatic and moody, with soft highlights emphasizing the metallic textures of silver and rose gold against a deep, dark background. The aesthetic is extremely premium, minimalist-luxury, evoking a sense of heritage and precision craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGj77hgdQbLdW0kwZnzLA4sTsCzm1TkKE45QW36T3pIteVa3BkW4QE3NPNax1MXPuDoCSb0r9YPX_gEbOKTdjRePC_EaTOn3CusvHvWS_dIrnausVY8guNJtMoKeA60g76intfpicQcn0P1LOjw2FKq2X43q-k5epz78625942fIV-i23VHy5DTsLG0K_DhmeD7zHOUgKGHoSHtkUsuKbB0TZF2jsxpu6BVNhS1RJU9wDDhKeWvY8WZw6THyofq6qliQ-Ct6MN3lyS"/>
+</div>
+<div class="aspect-square w-full relative bg-surface-container-low rounded-lg overflow-hidden border border-secondary/20">
+<img alt="Aura Chronograph Lifestyle" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" data-alt="A wide-angle lifestyle shot of a high-end luxury watch resting on a piece of dark, textured slate. Next to it is a pristine white cuff of a tailored dress shirt. The scene is lit by natural, diffused daylight creating soft shadows. The mood is calm, sophisticated, and quietly confident, perfectly aligning with a minimalist-luxury editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnAnOJsd0CW7FYcYwvoXHWpDW6Ml2tKgh5tQQwsET4-FIUxnEfqbmZQ716d4s9RR6PnEFwm5Pqyt8kX5ouDQ77NEtCCCpm3lpg54x7pK8l2bFzcSwWcz46GUBtNRpTOYZ6nPlwUFiDoyyhfIot2NdPomqldSmSN09S_-HupNnhlbIt4tzjANLP4pAxC6SzRKpui88igc32iLwhJoSmlbkSyD9A-vcNq2TS1sLMTameLPc2bJ5kKob8wgHNT8pqyrub7DfkBGTVQ6-z"/>
+</div>
+<div class="aspect-[4/3] w-full relative bg-surface-container-low rounded-lg overflow-hidden border border-secondary/20">
+<img alt="Aura Chronograph Strap Detail" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" data-alt="A detailed shot of a luxury watch strap made of premium, dark espresso brown leather. The focus is on the fine stitching and the polished silver clasp. The background is a soft, out-of-focus creamy ivory, providing stark contrast. The lighting highlights the subtle grain of the leather, conveying a sense of tactile luxury and timeless elegance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmJ5xllxZe68M3zUrp71nrM81LiV2OEk4ffaJfVewKVWkQ6c7v-7DvCaOZVhtiyYDLMKQSKBAkhVnYqOpEBkSLFDoHQpytBI1O2di76_7l21CbMZMCLjkwu7Kf5Ue5tnv1ZYiQeGv5ahnlFvsrwqkBejmuIPn_CwHk4E7G1CcJgK1OtiA8ip5GEkeparVVGs4r2vjSZjzDskRkvT_dmPu5nkNueN6JvTBzKju4SPND4cgHHqvRR37O9kKWOdpXG9rzf702SpT3DG_v"/>
+</div>
+</div>
+<!-- Right: Product Details (Sticky) -->
+<div class="w-full lg:w-5/12 p-margin border-l border-secondary/20 lg:sticky lg:top-24 h-max lg:h-[calc(100vh-6rem)] overflow-y-auto hide-scrollbar">
+<div class="space-y-unit-xl pb-unit-xxl">
+<!-- Header Info -->
+<div class="space-y-unit-md">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Heritage Collection</p>
+<h1 class="font-headline-lg text-headline-lg text-primary">Aura Chronograph</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">$12,500</p>
+</div>
+<!-- Description -->
+<div class="space-y-unit-md border-t border-secondary/20 pt-unit-xl">
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                            A masterclass in restraint and mechanical ingenuity. The Aura Chronograph embodies the 'New Heritage' ethos, blending classical watchmaking prestige with modern architectural lines. Engineered for the discerning individual who values intentionality over ostentation.
+                        </p>
+</div>
+<!-- Finish Selector -->
+<div class="space-y-unit-md border-t border-secondary/20 pt-unit-xl">
+<h3 class="font-label-md text-label-md text-primary uppercase tracking-widest">Case Finish</h3>
+<div class="flex gap-unit-md">
+<button aria-label="Brushed Titanium" class="w-12 h-12 rounded-full border-2 border-primary bg-[#e6e2df] focus:outline-none transition-transform hover:scale-110 flex items-center justify-center relative">
+<span class="absolute inset-0 rounded-full border border-surface scale-[1.1] opacity-100"></span>
+</button>
+<button aria-label="Obsidian PVD" class="w-12 h-12 rounded-full border border-secondary/30 bg-[#1c1b1a] focus:outline-none transition-transform hover:scale-110 flex items-center justify-center relative">
+<span class="absolute inset-0 rounded-full border border-surface scale-[1.1] opacity-0 hover:opacity-100 transition-opacity"></span>
+</button>
+<button aria-label="Rose Gold" class="w-12 h-12 rounded-full border border-secondary/30 bg-[#ede1d4] focus:outline-none transition-transform hover:scale-110 flex items-center justify-center relative">
+<span class="absolute inset-0 rounded-full border border-surface scale-[1.1] opacity-0 hover:opacity-100 transition-opacity"></span>
+</button>
+</div>
+</div>
+<!-- Actions -->
+<div class="space-y-unit-md pt-unit-lg">
+<button class="w-full py-unit-md bg-primary text-on-primary font-label-md text-label-md uppercase tracking-widest rounded-sm hover:bg-surface-tint transition-colors duration-300 ease-out flex items-center justify-center gap-2">
+                            Add to Cart
+                        </button>
+<button class="w-full py-unit-md bg-transparent border border-primary text-primary font-label-md text-label-md uppercase tracking-widest rounded-sm hover:bg-surface-container-low transition-colors duration-300 ease-out">
+                            Book a Boutique Appointment
+                        </button>
+</div>
+<!-- Tech Specs -->
+<div class="space-y-unit-md border-t border-secondary/20 pt-unit-xl">
+<h3 class="font-label-md text-label-md text-primary uppercase tracking-widest mb-unit-lg">Technical Specifications</h3>
+<div class="grid grid-cols-2 gap-y-unit-md text-sm border-b border-secondary/20 pb-unit-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Calibre</span>
+<span class="font-body-sm text-body-sm text-on-surface text-right">In-house Manual Wind HC-01</span>
+</div>
+<div class="grid grid-cols-2 gap-y-unit-md text-sm border-b border-secondary/20 pb-unit-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Power Reserve</span>
+<span class="font-body-sm text-body-sm text-on-surface text-right">72 Hours</span>
+</div>
+<div class="grid grid-cols-2 gap-y-unit-md text-sm border-b border-secondary/20 pb-unit-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Water Resistance</span>
+<span class="font-body-sm text-body-sm text-on-surface text-right">5 ATM (50 meters)</span>
+</div>
+<div class="grid grid-cols-2 gap-y-unit-md text-sm pb-unit-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Crystal</span>
+<span class="font-body-sm text-body-sm text-on-surface text-right">Domed Sapphire, Anti-reflective</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Curated Companions (Horizontal Scroller) -->
+<section class="border-t border-secondary/20 bg-surface-container-low py-unit-xxl">
+<div class="max-w-[1440px] mx-auto px-margin">
+<h2 class="font-headline-md text-headline-md text-primary mb-unit-xl">Curated Companions</h2>
+<div class="flex overflow-x-auto hide-scrollbar gap-gutter pb-unit-lg">
+<!-- Item 1 -->
+<div class="flex-none w-[300px] group cursor-pointer">
+<div class="aspect-[4/5] bg-surface mb-unit-md overflow-hidden border border-secondary/20 rounded-sm">
+<img alt="Watch Roll" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A meticulously crafted leather watch roll, open to display three empty compartments lined with soft suede. The exterior is a rich, dark mahogany leather. The lighting is soft and directional, creating a sense of quiet luxury against a minimalist pale ivory background. The composition is clean and precise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAte_u2MhNdb68dCgKC_4EJhEOLcjfb8s2AM2zc2q83YkjIHDngBHEg2IQ4kPwHwru_VrvRck3PBSVjBuwJs5TS5TmCs5t784-eoyR33Koye_JI9OD5G9ETFXbNGrQz6TbdC8Fi9o_7IqsdkCSf2HIAtTqAG1EfCAWgOLEBwwmNhHMY8L57aeGOfPgvI6NGxwas5V7ktT0mPAETR9qstijEvhIza5OPBk_sv2UjEcsu942mXprf1QFBh6pR57dcOTdQbR-HN9OSxN5C"/>
+</div>
+<h4 class="font-label-md text-label-md text-primary mb-1">Artisan Watch Roll</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">$450</p>
+</div>
+<!-- Item 2 -->
+<div class="flex-none w-[300px] group cursor-pointer">
+<div class="aspect-[4/5] bg-surface mb-unit-md overflow-hidden border border-secondary/20 rounded-sm">
+<img alt="Silver Cufflinks" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A pair of elegant silver cufflinks resting on a textured dark grey surface. The cufflinks feature a minimalist geometric design with a subtle matte finish. The scene is brightly lit with a light-mode aesthetic, highlighting the crisp lines and premium materials without harsh glare. Quiet confidence and editorial styling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgI96YuF9z-MhAUj2Mf1tQCpH3QqyM3hdVPzOXIz1BhWhURw2D8DpeBzVRxhpJkhKvvijPKFPbVXxRA5vNjqEkrB-JYK0s3zVwEDdp2xTToOy3r1rSooM1XCa9fH1NnFm7Wh0ELgd3JcZlAcvsercDQ0kSnvc-jnGGNA7pd-jGpFKwtpNQrnJ50tiSgD3fVL_HNXEhhig7vxU9X8HFuGKHLF7awERRPXdc-ZylViuFjshSz5lLDLlX9XFNLYRhDYV7uo25ne7IxhwH"/>
+</div>
+<h4 class="font-label-md text-label-md text-primary mb-1">Geometric Cufflinks</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">$280</p>
+</div>
+<!-- Item 3 -->
+<div class="flex-none w-[300px] group cursor-pointer">
+<div class="aspect-[4/5] bg-surface mb-unit-md overflow-hidden border border-secondary/20 rounded-sm">
+<img alt="Titanium Pen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A sleek, modern pen made of brushed titanium, lying across an open, high-quality leather-bound notebook. The pages of the notebook are a warm cream color. The lighting evokes a bright, sophisticated study room. The aesthetic is clean, minimalist, and focuses on high-end, tactile materials." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCU3YW0CjZxvAC3vON0yuRN6_9vMJLsmW8UyI3WI0KAoGcA6A_UVyPPiqIQSBreMm9rralRw4PvxH723YQeXJHr6ECLLw1qYC3x5Rv6K9Ccd8BmziTMcgW5bnX9RAvesrfCSWQZPEhWalBgL-kQLIsDGMJOsPY5eeDF4jVMqcCuXxH2JCQz2iRNmPp0lXGpHsH1bCCa_8QfGtdE7UIRQ1Mz_BzWLzrImxkldlt8nYgVilZAFPDy8Th8qcJIkMQ2uhoC9X_5Zc5Vv8Pk"/>
+</div>
+<h4 class="font-label-md text-label-md text-primary mb-1">Titanium Scribe</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">$195</p>
+</div>
+<!-- Item 4 -->
+<div class="flex-none w-[300px] group cursor-pointer">
+<div class="aspect-[4/5] bg-surface mb-unit-md overflow-hidden border border-secondary/20 rounded-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-[64px] text-secondary/30 group-hover:text-primary transition-colors duration-300">arrow_forward</span>
+</div>
+<h4 class="font-label-md text-label-md text-primary mb-1 mt-6">Explore Collection</h4>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-unit-xl border-t border-secondary/20 bg-surface dark:bg-surface">
+<div class="max-w-[1440px] mx-auto px-margin grid grid-cols-12 gap-gutter">
+<div class="col-span-12 md:col-span-6 flex flex-col justify-between">
+<a class="font-display-lg text-headline-md text-primary" href="#">HEIRLOOM</a>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-unit-lg">© 2024 HEIRLOOM HYPERLOCAL. ALL RIGHTS RESERVED.</p>
+</div>
+<div class="col-span-12 md:col-span-6 flex justify-end items-start gap-gutter font-body-sm text-body-sm">
+<div class="flex flex-col gap-unit-md">
+<a class="text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-100" href="#">Sustainability</a>
+<a class="text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-100" href="#">Shipping</a>
+<a class="text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-100" href="#">Terms</a>
+</div>
+<div class="flex flex-col gap-unit-md">
+<a class="text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-100" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-100" href="#">Careers</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
