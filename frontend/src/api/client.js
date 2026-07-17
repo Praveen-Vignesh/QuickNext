@@ -9,16 +9,22 @@ export const setToken = (token) => {
   else localStorage.removeItem(TOKEN_KEY);
 };
 
-// Deployed on Vercel the API is same-origin (/api/* is rewritten to the
-// serverless function), so an empty baseURL is correct there and there is no
-// cross-origin request at all. In dev the API is a separate process on :5000.
-// Setting VITE_API_BASE_URL explicitly overrides both — use it only if the API
-// really is on another host.
+// The API is a separate deployment (Render), so this must point at it in
+// production. In dev it's a local process on :5000.
 //
-// Note the deliberate `''` rather than a `||` fallback to localhost: an unset
-// var in production must mean "same origin", not "the visitor's own machine".
+// Never fall back to localhost in a production build — that would tell every
+// visitor's browser to call their own machine.
 export const API_BASE_URL =
   import.meta.env.VITE_API_BASE_URL || (import.meta.env.DEV ? 'http://localhost:5000' : '');
+
+// Unset in production means every request silently 404s against the static
+// host, which looks like a broken app rather than a missing config. Say so.
+if (!import.meta.env.DEV && !API_BASE_URL) {
+  console.error(
+    '[config] VITE_API_BASE_URL is not set. Set it to your deployed API URL in ' +
+      'Vercel → Settings → Environment Variables, then redeploy (Vite bakes it in at build time).'
+  );
+}
 
 const api = axios.create({ baseURL: API_BASE_URL });
 

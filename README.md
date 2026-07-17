@@ -136,54 +136,72 @@ Test card: `4111 1111 1111 1111`, any future expiry, any CVV.
 
 The key **secret never reaches the browser**. Only `RAZORPAY_KEY_ID` (publishable) is sent. Signature verification happens server-side in [payment.service.js](backend/src/services/payment.service.js).
 
-### 4. Deploy — one Vercel project, two services
+### 4. Deploy — backend on Render, frontend on Vercel
 
-Frontend and backend deploy together as a **single Vercel project** using [Vercel Services](https://vercel.com/docs/services). [vercel.json](vercel.json) declares both and routes public traffic:
+Two deploys, both free, both boring and proven. Do the **backend first** — the frontend needs its URL.
 
-```json
-{
-  "services": {
-    "frontend": { "root": "frontend", "framework": "vite" },
-    "backend":  { "root": "backend" }
-  },
-  "rewrites": [
-    { "source": "/api(/.*)?", "destination": { "service": "backend" } },
-    { "source": "/(.*)",      "destination": { "service": "frontend" } }
-  ]
-}
-```
+> Vercel Services (both halves in one Vercel project, same-origin, no CORS) is attractive but is a young feature with two competing config schemas, and access is gated. Not worth fighting on a deadline. This split is what the code and the smoke tests are built around.
 
-Each service builds and installs from **its own root**, which is why `backend/` and `frontend/` stay standalone packages with their own lockfiles — no root `package.json`, no workspaces.
+#### 4a. Backend → Render
 
-Why this shape:
-- **No CORS at all.** `/api/…` is same-origin, so the brief's "must not fail due to cross-origin issues" stops being a risk instead of being managed.
-- **No 60s cold start.** Render's free tier sleeps after 15 min idle and takes 30–60s to wake; judges opening a cold URL would see a broken app. No keep-alive pinger needed here.
-- **The deployed code is the tested code.** The backend runs `npm start` → `src/server.js` — exactly what `npm run smoke` exercises. No serverless wrapper sitting untested between the tests and production.
+[render.yaml](render.yaml) is a Blueprint, so most of this is filled in for you: **Render → New → Blueprint → pick this repo.** It sets `rootDir: backend`, `npm install`, `npm start`, and a health check on `/api/health`, then prompts for the secrets.
 
-**Project Settings → Framework must be set to `Services`.**
+Doing it by hand instead — **New → Web Service**:
 
-Gotchas:
-- When `services` is present, `buildCommand`, `outputDirectory`, `functions`, `framework` and `installCommand` are **invalid at the top level** — they belong inside a service.
-- A service is **internal by default**. Without a top-level rewrite pointing at it, it gets no public traffic.
-- Environment variables are shared across both services at the project level.
+| Setting | Value |
+|---|---|
+| Root Directory | `backend` |
+| Build Command | `npm install` |
+| Start Command | `npm start` |
+| Health Check Path | `/api/health` |
 
-Set these in **Project Settings → Environment Variables** (all environments):
+Environment variables:
 
 | Variable | Value |
 |---|---|
 | `MONGO_URI` | your standard (non-SRV) Atlas string |
 | `JWT_SECRET` | the long random string from `backend/.env` |
 | `JWT_EXPIRES_IN` | `7d` |
-| `GOOGLE_CLIENT_ID` | your client ID (omit to disable Google) |
-| `VITE_GOOGLE_CLIENT_ID` | the **same** client ID |
-| `CORS_ORIGINS` | `https://<your-app>.vercel.app` |
-| `RAZORPAY_KEY_ID` / `RAZORPAY_KEY_SECRET` | omit until you have keys — checkout runs simulated |
+| `NODE_ENV` | `production` |
+| `CORS_ORIGINS` | your Vercel URL — fill in after 4b |
+| `GOOGLE_CLIENT_ID` | optional |
+| `RAZORPAY_KEY_ID` / `RAZORPAY_KEY_SECRET` | optional — omit for simulated payments |
 
-**Do not set `VITE_API_BASE_URL`.** Unset means "same origin", which is what you want. Setting it to `http://localhost:5000` would make the deployed site call the *visitor's own machine*.
+Don't set `PORT`; Render injects it and the server reads it.
 
-Don't copy `PORT` or `NODE_ENV` from `backend/.env` either — Vercel manages both, and `NODE_ENV=development` would ship a dev build.
+Check `https://<your-api>.onrender.com/api/health` returns `"db": "connected"` before moving on.
 
-After the first deploy, add your real `https://<app>.vercel.app` URL to Google's **Authorized JavaScript origins**, and to `CORS_ORIGINS`. `VITE_*` vars are baked in at **build** time, so changing one needs a redeploy, not just a restart.
+#### 4b. Frontend → Vercel
+
+**Import the repo**, then:
+
+| Setting | Value |
+|---|---|
+| Root Directory | `frontend` ← the important one |
+| Framework Preset | `Vite` |
+
+Root Directory `frontend` is what makes Vercel see a plain Vite app instead of a confusing multi-service monorepo. [frontend/vercel.json](frontend/vercel.json) handles SPA routing so a refresh on `/cart` doesn't 404.
+
+Environment variables:
+
+| Variable | Value |
+|---|---|
+| `VITE_API_BASE_URL` | `https://<your-api>.onrender.com` — **required**, no trailing slash |
+| `VITE_GOOGLE_CLIENT_ID` | same client ID as the backend's, if using Google |
+
+`VITE_*` vars are baked in at **build** time — changing one needs a **redeploy**, not a restart. If `VITE_API_BASE_URL` is missing, the app logs a clear console error rather than silently 404ing.
+
+#### 4c. Close the loop
+
+1. Put your real Vercel URL into Render's `CORS_ORIGINS` → Render redeploys.
+2. Add the same URL to Google's **Authorized JavaScript origins**.
+3. Reload the site. Sign in with a demo account.
+
+#### 4d. Kill the cold start ⚠️
+
+**Render's free tier sleeps after 15 minutes idle and takes 30–60s to wake.** Judges opening a cold URL see a broken app — and that fails the brief's "Production Availability" bullet directly.
+
+Point a free [cron-job.org](https://cron-job.org) job at `https://<your-api>.onrender.com/api/health` every **10 minutes**, and **confirm it has actually fired** before you present. This is the step people set up and never verify.
 
 ---
 
