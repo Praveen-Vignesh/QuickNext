@@ -20,12 +20,32 @@ dotenv.config({ path: path.join(backendRoot, '.env'), quiet: true });
 // the Vercel serverless function, where exiting kills the container and Vercel
 // reports an opaque FUNCTION_INVOCATION_FAILED. A thrown Error gets logged with
 // its message intact on both platforms.
-function required(name) {
+/**
+ * Read an env var, trimming surrounding whitespace.
+ *
+ * Pasting a value into a hosting dashboard very easily carries a trailing
+ * newline, and the result is invisible in every UI that shows it back to you.
+ * A `\n` on GOOGLE_CLIENT_ID makes Google answer `401 invalid_client`; on
+ * RAZORPAY_KEY_SECRET it silently breaks HMAC verification; on MONGO_URI it
+ * fails to connect. Trim once, here, rather than debug it three times.
+ */
+function readEnv(name) {
   const value = process.env[name];
+  return typeof value === 'string' ? value.trim() : value;
+}
+
+// Fail loudly at boot rather than with a confusing 500 on the first request.
+// The brief explicitly penalises "environment configuration errors", and a
+// missing var on a deployed host is the classic way that happens.
+//
+// Throws rather than calling process.exit(): a thrown Error gets logged with
+// its message intact on Render, where exiting produces an opaque crash.
+function required(name) {
+  const value = readEnv(name);
   if (!value) {
     console.error(`\n[config] Missing required environment variable: ${name}`);
     console.error('[config] Locally: copy .env.example to .env and fill it in.');
-    console.error('[config] On Vercel: Project Settings → Environment Variables.\n');
+    console.error('[config] On Render: Dashboard → your service → Environment.\n');
     throw new Error(`Missing required environment variable: ${name}`);
   }
   return value;
@@ -33,21 +53,23 @@ function required(name) {
 
 export const env = {
   PORT: Number(process.env.PORT) || 5000,
-  NODE_ENV: process.env.NODE_ENV || 'development',
+  NODE_ENV: readEnv('NODE_ENV') || 'development',
 
   MONGO_URI: required('MONGO_URI'),
   JWT_SECRET: required('JWT_SECRET'),
-  JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN || '7d',
+  JWT_EXPIRES_IN: readEnv('JWT_EXPIRES_IN') || '7d',
 
   // Comma-separated so localhost and the deployed frontend can both be allowed.
-  CORS_ORIGINS: (process.env.CORS_ORIGINS || 'http://localhost:5173')
+  // Trailing slashes are stripped too: an Origin header never carries one, so
+  // "https://app.vercel.app/" would silently match nothing.
+  CORS_ORIGINS: (readEnv('CORS_ORIGINS') || 'http://localhost:5173')
     .split(',')
-    .map((o) => o.trim())
+    .map((o) => o.trim().replace(/\/+$/, ''))
     .filter(Boolean),
 
-  GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID || '',
-  RAZORPAY_KEY_ID: process.env.RAZORPAY_KEY_ID || '',
-  RAZORPAY_KEY_SECRET: process.env.RAZORPAY_KEY_SECRET || '',
+  GOOGLE_CLIENT_ID: readEnv('GOOGLE_CLIENT_ID') || '',
+  RAZORPAY_KEY_ID: readEnv('RAZORPAY_KEY_ID') || '',
+  RAZORPAY_KEY_SECRET: readEnv('RAZORPAY_KEY_SECRET') || '',
 };
 
 // Both integrations are optional on purpose: the app must boot and be fully
