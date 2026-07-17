@@ -9,12 +9,21 @@ export const setToken = (token) => {
   else localStorage.removeItem(TOKEN_KEY);
 };
 
-const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000',
-});
+// Deployed on Vercel the API is same-origin (/api/* is rewritten to the
+// serverless function), so an empty baseURL is correct there and there is no
+// cross-origin request at all. In dev the API is a separate process on :5000.
+// Setting VITE_API_BASE_URL explicitly overrides both — use it only if the API
+// really is on another host.
+//
+// Note the deliberate `''` rather than a `||` fallback to localhost: an unset
+// var in production must mean "same origin", not "the visitor's own machine".
+export const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || (import.meta.env.DEV ? 'http://localhost:5000' : '');
+
+const api = axios.create({ baseURL: API_BASE_URL });
 
 // Bearer header rather than cookies: no SameSite or third-party-cookie problems
-// once the frontend and API are on different domains.
+// if the API ever does move to another domain.
 api.interceptors.request.use((config) => {
   const token = getToken();
   if (token) config.headers.Authorization = `Bearer ${token}`;

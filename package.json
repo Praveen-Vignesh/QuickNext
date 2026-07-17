@@ -1,6 +1,7 @@
 {
-  "name": "namma-bazaar",
+  "name": "quicknext",
   "private": true,
+  "type": "module",
   "workspaces": [
     "frontend",
     "backend"

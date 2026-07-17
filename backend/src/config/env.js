@@ -1,16 +1,32 @@
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import dotenv from 'dotenv';
 
-dotenv.config();
+// Anchored to backend/.env rather than process.cwd(): this module is imported
+// from the backend (cwd=backend/) and from api/index.js (cwd=repo root), and a
+// cwd-relative lookup silently finds nothing in the second case.
+//
+// On Vercel there is no .env at all — the dashboard injects real environment
+// variables, dotenv finds no file, and (because it never overrides existing
+// vars) everything resolves from process.env as intended.
+const backendRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+dotenv.config({ path: path.join(backendRoot, '.env'), quiet: true });
 
 // Fail loudly at boot rather than with a confusing 500 on the first request.
 // The brief explicitly penalises "environment configuration errors", and a
 // missing var on a deployed host is the classic way that happens.
+//
+// Throws rather than calling process.exit(): this module is also imported by
+// the Vercel serverless function, where exiting kills the container and Vercel
+// reports an opaque FUNCTION_INVOCATION_FAILED. A thrown Error gets logged with
+// its message intact on both platforms.
 function required(name) {
   const value = process.env[name];
   if (!value) {
     console.error(`\n[config] Missing required environment variable: ${name}`);
-    console.error('[config] Copy .env.example to .env and fill it in.\n');
-    process.exit(1);
+    console.error('[config] Locally: copy .env.example to .env and fill it in.');
+    console.error('[config] On Vercel: Project Settings → Environment Variables.\n');
+    throw new Error(`Missing required environment variable: ${name}`);
   }
   return value;
 }

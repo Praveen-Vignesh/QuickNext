@@ -136,19 +136,33 @@ Test card: `4111 1111 1111 1111`, any future expiry, any CVV.
 
 The key **secret never reaches the browser**. Only `RAZORPAY_KEY_ID` (publishable) is sent. Signature verification happens server-side in [payment.service.js](backend/src/services/payment.service.js).
 
-### 4. Deploy
+### 4. Deploy — one Vercel project, frontend + API together
 
-| Piece | Host | Notes |
-|---|---|---|
-| Database | Atlas M0 | already public via `0.0.0.0/0` |
-| Backend | Render | set every `backend/.env` var; build `npm install`, start `npm start` |
-| Frontend | Vercel | root `frontend/`; set `VITE_*` vars; [vercel.json](frontend/vercel.json) already handles SPA routing |
+The React app and the Express API deploy as a **single Vercel project**. [api/index.js](api/index.js) wraps the Express app as a serverless function, and [vercel.json](vercel.json) rewrites `/api/*` to it; everything else serves the SPA.
 
-Two things to set the moment URLs exist:
-- Backend `CORS_ORIGINS` → your exact Vercel URL (comma-separated, no trailing slash, **never `*`**).
-- Frontend `VITE_API_BASE_URL` → your Render URL.
+This is worth the restructure for two reasons:
+- **No CORS at all.** The API is same-origin (`/api/…`), so the brief's "must not fail due to cross-origin issues" stops being a risk rather than being managed.
+- **No 60-second cold start.** Render's free tier sleeps after 15 min idle and takes 30–60s to wake — judges opening a cold URL would see a broken app. Vercel's cold start is under a second and needs no keep-alive pinger.
 
-**Render free tier sleeps after 15 minutes idle and takes 30–60s to wake.** Judges opening a cold URL see a broken app. Point a free [cron-job.org](https://cron-job.org) ping at `https://<your-api>/api/health` every 10 minutes, and confirm it's actually firing before you present.
+**Import the repo at Vercel → Framework: Vite.** Root directory stays the repo root (not `frontend/`) — the root `package.json` uses npm workspaces and `vercel.json` points the build at `frontend/dist`.
+
+Set these in **Project Settings → Environment Variables** (all environments):
+
+| Variable | Value |
+|---|---|
+| `MONGO_URI` | your standard (non-SRV) Atlas string |
+| `JWT_SECRET` | the long random string from `backend/.env` |
+| `JWT_EXPIRES_IN` | `7d` |
+| `GOOGLE_CLIENT_ID` | your client ID (omit to disable Google) |
+| `VITE_GOOGLE_CLIENT_ID` | the **same** client ID |
+| `CORS_ORIGINS` | `https://<your-app>.vercel.app` |
+| `RAZORPAY_KEY_ID` / `RAZORPAY_KEY_SECRET` | omit until you have keys — checkout runs simulated |
+
+**Do not set `VITE_API_BASE_URL`.** Unset means "same origin", which is what you want. Setting it to `http://localhost:5000` would make the deployed site call the *visitor's own machine*.
+
+Don't copy `PORT` or `NODE_ENV` from `backend/.env` either — Vercel manages both, and `NODE_ENV=development` would ship a dev build.
+
+After the first deploy, add your real `https://<app>.vercel.app` URL to Google's **Authorized JavaScript origins**, and to `CORS_ORIGINS`. `VITE_*` vars are baked in at **build** time, so changing one needs a redeploy, not just a restart.
 
 ---
 
