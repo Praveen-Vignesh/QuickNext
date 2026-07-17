@@ -136,15 +136,36 @@ Test card: `4111 1111 1111 1111`, any future expiry, any CVV.
 
 The key **secret never reaches the browser**. Only `RAZORPAY_KEY_ID` (publishable) is sent. Signature verification happens server-side in [payment.service.js](backend/src/services/payment.service.js).
 
-### 4. Deploy — one Vercel project, frontend + API together
+### 4. Deploy — one Vercel project, two services
 
-The React app and the Express API deploy as a **single Vercel project**. [api/index.js](api/index.js) wraps the Express app as a serverless function, and [vercel.json](vercel.json) rewrites `/api/*` to it; everything else serves the SPA.
+Frontend and backend deploy together as a **single Vercel project** using [Vercel Services](https://vercel.com/docs/services). [vercel.json](vercel.json) declares both and routes public traffic:
 
-This is worth the restructure for two reasons:
-- **No CORS at all.** The API is same-origin (`/api/…`), so the brief's "must not fail due to cross-origin issues" stops being a risk rather than being managed.
-- **No 60-second cold start.** Render's free tier sleeps after 15 min idle and takes 30–60s to wake — judges opening a cold URL would see a broken app. Vercel's cold start is under a second and needs no keep-alive pinger.
+```json
+{
+  "services": {
+    "frontend": { "root": "frontend", "framework": "vite" },
+    "backend":  { "root": "backend" }
+  },
+  "rewrites": [
+    { "source": "/api(/.*)?", "destination": { "service": "backend" } },
+    { "source": "/(.*)",      "destination": { "service": "frontend" } }
+  ]
+}
+```
 
-**Import the repo at Vercel → Framework: Vite.** Root directory stays the repo root (not `frontend/`) — the root `package.json` uses npm workspaces and `vercel.json` points the build at `frontend/dist`.
+Each service builds and installs from **its own root**, which is why `backend/` and `frontend/` stay standalone packages with their own lockfiles — no root `package.json`, no workspaces.
+
+Why this shape:
+- **No CORS at all.** `/api/…` is same-origin, so the brief's "must not fail due to cross-origin issues" stops being a risk instead of being managed.
+- **No 60s cold start.** Render's free tier sleeps after 15 min idle and takes 30–60s to wake; judges opening a cold URL would see a broken app. No keep-alive pinger needed here.
+- **The deployed code is the tested code.** The backend runs `npm start` → `src/server.js` — exactly what `npm run smoke` exercises. No serverless wrapper sitting untested between the tests and production.
+
+**Project Settings → Framework must be set to `Services`.**
+
+Gotchas:
+- When `services` is present, `buildCommand`, `outputDirectory`, `functions`, `framework` and `installCommand` are **invalid at the top level** — they belong inside a service.
+- A service is **internal by default**. Without a top-level rewrite pointing at it, it gets no public traffic.
+- Environment variables are shared across both services at the project level.
 
 Set these in **Project Settings → Environment Variables** (all environments):
 
