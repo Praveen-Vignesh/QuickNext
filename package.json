@@ -1,0 +1,12 @@
+{
+  "name": "namma-bazaar",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace=quicknext-frontend",
+    "dev": "npm run dev --workspaces"
+  }
+}
